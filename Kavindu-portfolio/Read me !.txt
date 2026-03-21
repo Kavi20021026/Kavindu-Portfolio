@@ -1,6 +1,0 @@
-sir,
-
-sometimes the icon shows when there is an internet connection.
-and my javascript code is also in the html code.
-
-Thank you.
