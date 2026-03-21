@@ -1,0 +1,528 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+    <!-- ==================== HEAD SECTION ==================== -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portofolio</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/84abd1aef1.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+ 
+    
+ 
+    <body>
+        <!-- ==================== HEADER & NAVIGATION SECTION ==================== -->
+        <div id="header">
+            <div class="container">
+                <nav>
+                    <img src="images/logo3-removebg-preview.png" class="logo" alt="Portfolio logo">
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li> 
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#stats">Achievements</a></li>
+                        <li><a href="#portfolio">works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="https://github.com/Kavi20021026"><i class="fa-brands fa-github"></i></a></li>
+                        <li>
+                            <button type="button" class="icon-btn fa-solid fa-moon" id="mode-toggle" aria-label="Toggle color mode"></button>
+                        </li>
+                        <li class="nav-close">
+                            <button type="button" class="nav-toggle nav-toggle-close" onclick="closemenu()" aria-label="Close navigation">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </li>
+                    </ul>
+                    <button type="button" class="nav-toggle nav-toggle-open" onclick="openmenu()" aria-label="Open navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </nav>
+                <div class="header-text">
+                    <p><span id="typing"></span><span class="cursor">|</span></p>
+                    <h1>Hi I'm <span> Dissanayaka </span><br> From Sri Lanka</h1>
+
+                </div>
+            </div>
+        </div>
+    
+
+        <!-- ==================== ABOUT SECTION ==================== -->
+
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src ="images/handsome-man-suit.png">
+                        </div>
+                        <div class="about-col-2">
+                            <h1 class="subtitle">About Me</h1><br>
+                            <p class="p1">I am an HNDIT Undergraduate from Sri Lanka with a strong interest in software development and web technologies. I enjoy building practical applications that solve real-world problems and improve user experiences.<br>
+                                <br>Through my academic projects and personal learning, I have developed skills in HTML, CSS, JavaScript, Java, and SQL. I have worked on several projects including web-based systems and database-driven applications,Ai Application,Cyber Security etc,
+                                which helped me strengthen my understanding of both front-end development and software logic.<br><br>
+                            I am passionate about continuously learning new technologies and improving my problem-solving skills. My goal is to grow as a software developer and contribute to innovative projects that create meaningful digital solutions.<br><br>
+                            I am currently seeking an It related internship opportunities in software development or web development, where I can gain industry experience, collaborate with professional developers, and further develop my technical skills.<br><br>
+                            </p>
+
+                            <div class="tab-titles">
+                               <br> <p class="tab-links active-link" onclick="opentab(event, 'Skills')">Skills</p>
+                                <p class="tab-links" onclick="opentab(event, 'Projects')">Projects</p>
+                                <p class="tab-links" onclick="opentab(event, 'Education')">Education</p>
+                                <p class="tab-links" onclick="opentab(event, 'Certifications')">Certifications</p>
+                                
+                            </div>
+                            <div class="tab-contents active-tab" id="Skills">
+                                <ul>
+                                    <li><span>Programming Languages</span><br>C#, Java, PHP</li>
+                                    <li><span>Web Technologies</span><br>HTML, CSS, JavaScript (for design collaboration),Bootstrap</li>
+                                    <li><span>Databases</span><br>Mysql, Ms Access</li>
+                                    <li><span>Tools & Platforms</span><br>XAMPP, Visual Studio, NetBeans</li>
+                                    <li><span>Design Tools</span><br>Figma, Canva, Adobe Package</li>
+                                    <li><span>Operating System</span><br>Windows, Linux</li>
+                                    <li><span>AI</span></li>
+                                    <li><span>Project Management</span></li>
+                                    <li><span>Data Science</span></li>
+                                    <li><span>Digital Business Skill</span></li>
+                                </ul>
+                            </div>
+                            <div class="tab-contents" id="Projects">
+                                <ul>
+                                    <li>
+                        <span>Web Development Project - Movie Booking System</span><br> Developed a responsive movie booking website using HTML, CSS, and JavaScript, allowing users to browse movies, select seats, and make reservations online.
+                        </li>
+
+                                   <li> <span>Java Project - weather web application</span><br> Built a Java GUI application. A full-stack weather web application built using pure Java without frameworks. 
+                         </li>
+
+                                   <li> <span>Database Project - Smart Disaster Management System</span><br> Designed and implemented a relational database using My SQL to support a disaster management system, including tables for incidents, resources, and response teams.
+                        </li>
+                                </ul>
+                            </div>
+                            <div class="tab-contents" id="Education">
+                                <ul>
+                                    <li><span>Higher National Diploma In Information Technologies - 
+                                        SLIATE</span><br>Focused on Database Management Systems, Object-Oriented Programming, Web Programming, Web Designing, Computer Networks, Information Systems</li>
+                                    <li><span>GCE Advanced Level (Bio Science 2023) - 
+                                       R/Gankanda Central College</span><br>Biology - C <br> Physics - S <br> Chemistry - S</li>
+                                </ul>
+                            </div>
+
+                 <div class="tab-contents" id="Certifications">
+                                <ul>
+                                    <li><span>Certifications</span><br>Ethical Hacking - CISCO Networking Academy - 2026</li>
+                            
+                                    <li><span>Certification</span><br>Cyber Security - CISCO Networking Academy - 2025</li>
+                                    <li><span>Certification</span><br>Cyber Threat Management - CISCO Networking Academy - 2025</li>
+                                    <li><span>Certification</span><br>Digital Business Skill - HP-LIFE - 2025</li>
+                                    <li><span>Certification</span><br>Data Science and Analytics - HP-LIFE - 2025</li>
+                                    <li><span>Certification</span><br>Cyber Security Awareness - HP-LIFE - 2025</li>
+                                    <li><span>Certification</span><br>Customer Experience Focus - HP-LIFE - 2025</li>
+                                    <li><span>Certification</span><br>Agile Project Management - HP-LIFE - 2025</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+      
+        
+        <!-- ==================== SERVICES SECTION ==================== -->
+       <div id="services">
+        <div class="container">
+            <h1 class="subtitle">What I Do</h1><br>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Development</h2>
+                    <p>I create visually stunning, fully responsive, and user-friendly websites tailored to your business needs. </p>
+                    <a href="#portfolio">Learn More</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <h2>Java Development</h2>
+                    <p>I develop Java applications and systems using object-oriented programming and GUI frameworks.</p>
+                    <a href="#portfolio">Learn More</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-database"></i>
+                    <h2>Database Design</h2>
+                    <p>I design relational databases using SQL and create efficient structures for managing application data.</p>
+                    <a href="#portfolio">Learn More</a>
+                </div>
+            </div>
+
+        </div>
+       </div>
+  
+
+        <!-- ==================== ACHIEVEMENTS/STATS SECTION ==================== -->
+<section id="stats" class="stats-section fade-in">
+  <h1>My Achievements</h1>
+<div>
+  <div class="stats">
+
+    <div class="stat-box">
+      <i class="fas fa-code"></i>
+      <h2 class="counter" data-target="4">0</h2>
+      <p>Projects Completed</p>
+    </div>
+
+    <div class="stat-box">
+      <i class="fas fa-laptop-code"></i>
+      <h2 class="counter" data-target="6">0</h2>
+      <p>Technologies Used</p>
+    </div>
+
+    <div class="stat-box">
+      <i class="fab fa-github"></i>
+      <h2 class="counter" data-target="4">0</h2>
+      <p>GitHub Repositories</p>
+    </div>
+
+    <div class="stat-box">
+      <i class="fas fa-database"></i>
+      <h2 class="counter" data-target="2">0</h2>
+      <p>Database / Java Projects</p>
+    </div>
+
+  </div> </div>
+</section>
+      
+
+        <!-- ==================== PORTFOLIO/WORK SECTION ==================== -->
+       <div id="portfolio">
+        <div class="container">
+            <h1 class="subtitle">My Work</h1>
+            <div class="work-list">
+                <div class="work"onclick="openModal(
+'Movie Booking System',
+'images/movie 1.png,images/movie 2.png,images/movie 3.png,images/movie 4.png',
+'A web-based movie ticket booking system built using HTML, CSS, JavaScript and SQL.',
+'https://github.com/Kavi20021026/Movie-Theater-Booking-System.git')">
+                    <img src="images/web design.jpg">
+                    <div class="layer">
+                        <h3><b>Movie Ticket Booking System</b></h3>
+                        <p>A web-based movie booking system that allows users to browse movies and reserve seats. Built using HTML, CSS, JavaScript.<br> <br>
+                           
+                            <br><b>Technologies:</b> HTML, CSS, JavaScript
+                            </p>
+                            <a href=""> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                 <div class="work"onclick="openModal(
+'Weather App (Java Full-Stack)',
+'images/webapp1.png,images/webapp2.png',
+'A full-stack weather web application built using pure Java without frameworks. This project fetches real-time weather data from an external API and displays it through a responsive web interface.',
+'https://github.com/Kavi20021026/weather-app-java.git')">
+                        <img src="images/java system.jpg">
+                        <div class="layer">
+                            <h3><b>Weather App (Java Full-Stack)</b></h3>
+                            <p><b> Features:</b> Search weather by city.<br>
+                               <br>Real-time API data integration.<br>Lightweight Java backend (no frameworks)<br>
+                               Clean and responsive UI
+                               <br><br><b>Technologies:</b> Java (HttpServer), REST API, HTML, CSS, JavaScript<br><br>
+                              </p>
+
+                                 <a href=""><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                   <div class="work"onclick="openModal(
+'Smart Disaster Relief System',
+'images/database0.png,images/smer.png,images/smerm.png,images/database1.png,images/database2.png,images/database3.png,images/database4.png,images/database5.png',
+'A disaster management system that helps coordinate relief operations during emergencies.',
+'https://github.com/Kavi20021026/Smart-Disaster-Relief-Management-System.git')">
+
+                            <img src="images/database.jpg">
+                            <div class="layer">
+                                <h3><b>Smart Disaster Relief System</b></h3>
+                                <p>A disaster management system designed to improve communication and coordination during emergency situations. 
+<br>The system helps identify affected areas, manage relief resources, and support faster response during disasters.
+<br><br>
+
+                                    <br><b>Features:</b> Disaster reporting, relief resource management, and location-based assistance. <br>
+                                    
+                                    <br><b>Technologies:</b>  SQL
+                                   </p>
+                                    <a href="#"> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        
+            </div>
+                     <a href="#" class="btn"> See more</a>
+
+        </div>
+       </div>
+     
+
+        <!-- ==================== CONTACT SECTION ==================== -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="subtitle">Contact Me</h1><br>
+                <p><i class="fa-solid fa-paper-plane"></i> <a href="mailto:kavindudissanayka2018@gmail.com">kavindudissanayka2018@gmail.com</a></p><br>
+                <p> <i class="fa-solid fa-phone"></i> 076-6107191</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com/kavinduamerica.dissanayaka"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://wa.me/94766107191?text=Hello%20I%20saw%20your%20portfolio"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:kavindudissanayka2018@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/kavindu-dissanayake-b48466221"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/Kavi20021026"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.credly.com/users/kavindu-madushan-dissanayaka"><i class="fa-solid fa-globe"></i></a>
+</div>
+               <a href="images/kavindu cv.pdf" download class="btn btn2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form action="https://formspree.io/f/meerkjel" method="POST">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+
+                
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2026 Kavindu M Dissanayaka | Web Developer | Sri Lanka</p>
+
+    </div>
+</div>
+        
+
+        <!-- ==================== PROJECT MODAL (POPUP) ==================== -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <h2 id="modalTitle"></h2>
+
+    <p id="modalDescription"></p>
+
+    <div id="modalImages"></div>
+
+    <a href="#" id="modalGitHub" class="btn" target="_blank">View Code</a>
+  </div>
+</div>
+     
+        
+        <!-- ==================== JAVASCRIPT CODE SECTION ==================== -->
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script>
+            // ===== TAB FUNCTIONALITY =====
+            // Initialize variables for tab switching
+         
+            var tablinks = document.getElementsByClassName("tab-links"); 
+            var tabcontents = document.getElementsByClassName("tab-contents"); 
+            var sideMenu = document.getElementById("sidemenu");
+
+            // Function to open and switch between tabs
+            function opentab(event, tabname){
+                for( tablink of tablinks){
+                    tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+
+        }
+        
+            // ===== MOBILE MENU FUNCTIONALITY =====
+            // Function to open mobile menu
+            function openmenu(){
+            sideMenu.classList.add("open");
+            document.body.classList.add("menu-open");
+        }
+
+            // Function to close mobile menu
+            function closemenu(){
+            sideMenu.classList.remove("open");
+            document.body.classList.remove("menu-open");
+        }
+
+            // Auto-close menu when a link is clicked on mobile
+            sideMenu.querySelectorAll("a").forEach(function(link){
+            link.addEventListener("click", function(){
+                if(window.innerWidth <= 768){
+                    closemenu();
+                }
+            });
+        });
+
+            // ===== PORTFOLIO CARD FUNCTIONALITY =====
+            // Prevent default behavior on portfolio work cards
+            document.querySelectorAll(".work .layer a").forEach(function(link){
+            link.addEventListener("click", function(event){
+                event.preventDefault();
+            });
+        });
+
+            // Get all portfolio work cards
+            const workCards = document.querySelectorAll(".work");
+
+            // Check if the device is in touch mode (mobile/tablet)
+            function isTouchPortfolioMode(){
+            return window.innerWidth <= 768 || window.matchMedia("(hover: none)").matches;
+        }
+
+            // Clear active state from all work cards except the one specified
+            function clearActiveWork(exceptCard){
+            workCards.forEach(function(card){
+                if(card !== exceptCard){
+                    card.classList.remove("touch-active");
+                }
+            });
+        }
+
+            // Add click event handling to each work card
+            workCards.forEach(function(card){
+            card.addEventListener("click", function(event){
+                if(!isTouchPortfolioMode() || card.classList.contains("touch-active")){
+                    return;
+                }
+
+                clearActiveWork(card);
+                card.classList.add("touch-active");
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            }, true);
+        });
+
+            // Close work cards when clicking outside them
+            document.addEventListener("click", function(event){
+            if(!event.target.closest(".work")){
+                clearActiveWork();
+            }
+        });
+
+            // Clear active cards when window is resized (non-touch mode)
+            window.addEventListener("resize", function(){
+            if(!isTouchPortfolioMode()){
+                clearActiveWork();
+            }
+        });
+
+            // ===== DARK/LIGHT MODE TOGGLE =====
+            const toggleBtn = document.getElementById("mode-toggle");
+            
+            // Toggle between light and dark mode
+            toggleBtn.onclick = function(){
+    document.body.classList.toggle("light-mode");
+
+    if(document.body.classList.contains("light-mode")){
+        toggleBtn.classList.remove("fa-moon");
+        toggleBtn.classList.add("fa-sun");
+    }else{
+        toggleBtn.classList.remove("fa-sun");
+        toggleBtn.classList.add("fa-moon");
+    }
+}
+
+            // ===== PROJECT MODAL FUNCTIONALITY =====
+            // Function to open the project modal/popup
+            function openModal(title, images, description, githubLink){
+
+  const modal = document.getElementById("projectModal");
+  clearActiveWork();
+  modal.style.display = "block";
+
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDescription").innerText = description;
+
+  const imageContainer = document.getElementById("modalImages");
+  imageContainer.innerHTML = "";
+
+  images.split(",").forEach(img => {
+    let image = document.createElement("img");
+    image.src = img;
+    image.className = "modal-img";
+    imageContainer.appendChild(image);
+  });
+
+  const githubBtn = document.getElementById("modalGitHub");
+  githubBtn.href = githubLink;
+}
+
+            // Close modal when close button is clicked
+            document.querySelector(".close").onclick = function() {
+  document.getElementById("projectModal").style.display = "none";
+}
+
+            // Close modal when clicking outside the modal content
+            window.onclick = function(event) {
+  const modal = document.getElementById("projectModal");
+  if(event.target == modal){
+    modal.style.display = "none";
+  }
+}
+
+            // ===== SCROLL ANIMATION & FADE-IN EFFECT =====
+            // Get all elements with fade-in class
+            const faders = document.querySelectorAll('.fade-in');
+
+window.addEventListener('scroll', () => {
+  const triggerBottom = window.innerHeight * 0.8;
+
+  faders.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if(sectionTop < triggerBottom){
+      section.classList.add('show');
+    }
+  });
+});
+
+            // ===== COUNTER ANIMATION =====
+            // Get all counter elements for achievement stats
+            const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+
+    const increment = target / 100;
+
+    if(count < target){
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(updateCount, 20);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  updateCount();
+});
+
+            // ===== TYPING ANIMATION =====
+            // Initialize typing effect using Typed.js library
+            var typed = new Typed("#typing", {
+  strings: [
+    "HND-IT Undergraduate",
+    "Web Developer",
+    "Java Developer",
+    "Database Designer",
+    
+  "Building Real-World Software",
+  "Web & Java Developer",
+  "Database System Designer"
+
+  ],
+  typeSpeed: 60,
+  backSpeed: 40,
+  backDelay: 1500,
+  loop: true
+});
+        </script>
+        
+    </body>
+    
+</html>
