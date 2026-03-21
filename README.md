@@ -1,8 +1,8 @@
-💼 Personal Portfolio Website
+## 💼 Personal Portfolio Website
 
 This is my personal portfolio website showcasing my skills, projects, and experience as an HNDIT Undergraduate and aspiring software developer.
 
-🚀 Features
+## 🚀 Features
 Responsive design (mobile-friendly)
 Dark/Light mode toggle
 Typing animation
