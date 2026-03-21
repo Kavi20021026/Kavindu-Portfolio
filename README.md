@@ -45,7 +45,7 @@ Smooth scrolling and animations
 The contact form is fully functional using Formspree, allowing users to send messages directly to my email without requiring a custom backend.
 
 🌐 Live Demo
+https://kavindu-online.netlify.app/
 
-(Will add Netlify link here)
 
 © 2026 Kavindu Madushan. All rights reserved. | Designed & Developed by Kavindu
