@@ -19,6 +19,9 @@
     <!-- FontAwesome and Lucide Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Three.js for 3D Floating Device Mockup (Option 4) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
@@ -803,22 +806,40 @@
 
                         <!-- 2. Projects Summary Panel -->
                         <div class="tab-panel" id="projects-panel">
-                            <div style="margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-                                <span style="font-size: 13px; color: var(--text-muted);"><i class="fa-solid fa-code-fork text-accent"></i> 9 Shipped Production Systems &amp; Research Works</span>
-                                <a href="#projects" class="btn-outline btn-sm" style="padding: 4px 12px; font-size: 11.5px; display: inline-flex; align-items: center; gap: 6px;">
-                                    <span>Explore Works Grid</span> <i class="fa-solid fa-arrow-down" style="font-size: 10px;"></i>
+                            <div
+                                style="margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                                <span style="font-size: 13px; color: var(--text-muted);"><i
+                                        class="fa-solid fa-code-fork text-accent"></i> 9 Shipped Production Systems
+                                    &amp; Research Works</span>
+                                <a href="#projects" class="btn-outline btn-sm"
+                                    style="padding: 4px 12px; font-size: 11.5px; display: inline-flex; align-items: center; gap: 6px;">
+                                    <span>Explore Works Grid</span> <i class="fa-solid fa-arrow-down"
+                                        style="font-size: 10px;"></i>
                                 </a>
                             </div>
                             <ul class="tab-list-items" style="max-height: 400px; overflow-y: auto; padding-right: 8px;">
                                 <li>
-                                    <span><i class="fa-solid fa-wallet" style="color: #06b6d4;"></i> Spendly – Smart Personal Expense &amp; Financial Analytics App</span>
-                                    <p>Designed and built Spendly, an offline-first personal financial management application with Flutter and Dart. Features real-time monthly expense calculation, rolling average tracking, donut chart category breakdowns, instant denomination chips (+100, +500, +1K, +5K), live keyword/category filtering, and a dual Dark/Light theme engine.</p>
-                                    <div class="edu-cert-meta">Tech Stack: Flutter &bull; Dart &bull; Local Encrypted Vault &bull; Data Visualization &bull; Material 3</div>
+                                    <span><i class="fa-solid fa-wallet" style="color: #06b6d4;"></i> Spendly – Smart
+                                        Personal Expense &amp; Financial Analytics App</span>
+                                    <p>Designed and built Spendly, an offline-first personal financial management
+                                        application with Flutter and Dart. Features real-time monthly expense
+                                        calculation, rolling average tracking, donut chart category breakdowns, instant
+                                        denomination chips (+100, +500, +1K, +5K), live keyword/category filtering, and
+                                        a dual Dark/Light theme engine.</p>
+                                    <div class="edu-cert-meta">Tech Stack: Flutter &bull; Dart &bull; Local Encrypted
+                                        Vault &bull; Data Visualization &bull; Material 3</div>
                                 </li>
                                 <li>
-                                    <span><i class="fa-solid fa-mobile-screen-button" style="color: #6366f1;"></i> QueueLess – Smart Virtual Queue Management Mobile App</span>
-                                    <p>Engineered an enterprise cross-platform mobile queue virtualization ecosystem using Flutter 3.44+ and Dart 3.12+ with Cloud Firestore real-time streaming, dynamic rolling wait-time calculation, instant QR pass generation &amp; scanning, and decoupled user experiences across Customer Mobile, Counter Staff Terminal, and Admin BI Portals.</p>
-                                    <div class="edu-cert-meta">Tech Stack: Flutter 3.44+ &bull; Dart 3.12+ &bull; Firebase Auth &bull; Cloud Firestore &bull; Riverpod 2.5+ &bull; Cloud Functions &bull; QR Code Engine &bull; Material 3</div>
+                                    <span><i class="fa-solid fa-mobile-screen-button" style="color: #6366f1;"></i>
+                                        QueueLess – Smart Virtual Queue Management Mobile App</span>
+                                    <p>Engineered an enterprise cross-platform mobile queue virtualization ecosystem
+                                        using Flutter 3.44+ and Dart 3.12+ with Cloud Firestore real-time streaming,
+                                        dynamic rolling wait-time calculation, instant QR pass generation &amp;
+                                        scanning, and decoupled user experiences across Customer Mobile, Counter Staff
+                                        Terminal, and Admin BI Portals.</p>
+                                    <div class="edu-cert-meta">Tech Stack: Flutter 3.44+ &bull; Dart 3.12+ &bull;
+                                        Firebase Auth &bull; Cloud Firestore &bull; Riverpod 2.5+ &bull; Cloud Functions
+                                        &bull; QR Code Engine &bull; Material 3</div>
                                 </li>
                                 <li>
                                     <span><i class="fa-solid fa-graduation-cap" style="color: #38bdf8;"></i> Research
@@ -899,22 +920,29 @@
 
                         <!-- 4. Certifications Panel -->
                         <div class="tab-panel" id="certs-panel">
-                            <div style="margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-                                <span style="font-size: 13px; color: var(--text-muted);"><i class="fa-solid fa-award"></i> 23+ Verified Global Credentials</span>
-                                <a href="https://www.credly.com/users/kavindu-madushan-dissanayaka" target="_blank" rel="noopener" class="btn-primary btn-sm" style="padding: 4px 12px; font-size: 11.5px; display: inline-flex; align-items: center; gap: 6px;">
-                                    <i class="fa-solid fa-award"></i> Verify on Credly <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 10px;"></i>
+                            <div
+                                style="margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                                <span style="font-size: 13px; color: var(--text-muted);"><i
+                                        class="fa-solid fa-award"></i> 23+ Verified Global Credentials</span>
+                                <a href="https://www.credly.com/users/kavindu-madushan-dissanayaka" target="_blank"
+                                    rel="noopener" class="btn-primary btn-sm"
+                                    style="padding: 4px 12px; font-size: 11.5px; display: inline-flex; align-items: center; gap: 6px;">
+                                    <i class="fa-solid fa-award"></i> Verify on Credly <i
+                                        class="fa-solid fa-arrow-up-right-from-square" style="font-size: 10px;"></i>
                                 </a>
                             </div>
                             <ul class="tab-list-items" style="max-height: 400px; overflow-y: auto; padding-right: 8px;">
                                 <li>
                                     <span>Data Analytics Essentials</span>
                                     <p>CISCO Networking Academy — Issued 10 Oct 2026</p>
-                                    <div class="edu-cert-meta">Verification ID: 366f5e68-4fbe-40ee-9db3-980c64e8354d</div>
+                                    <div class="edu-cert-meta">Verification ID: 366f5e68-4fbe-40ee-9db3-980c64e8354d
+                                    </div>
                                 </li>
                                 <li>
                                     <span>Data Science Essentials with Python</span>
                                     <p>CISCO Networking Academy — Issued 21 Sep 2026</p>
-                                    <div class="edu-cert-meta">Verification ID: e2b2711a-702f-481c-9319-7544e6f34440</div>
+                                    <div class="edu-cert-meta">Verification ID: e2b2711a-702f-481c-9319-7544e6f34440
+                                    </div>
                                 </li>
                                 <li>
                                     <span>Python for Beginners</span>
@@ -1470,7 +1498,8 @@
                     <a href="https://www.credly.com/users/kavindu-madushan-dissanayaka" target="_blank" rel="noopener"
                         class="cert-pill cert-pill-credly" title="Verify Badges on Credly Profile">
                         <i class="fa-solid fa-certificate" style="color: #ff6b35;"></i>
-                        <span>Credly Verified Badges <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 9px; margin-left: 2px;"></i></span>
+                        <span>Credly Verified Badges <i class="fa-solid fa-arrow-up-right-from-square"
+                                style="font-size: 9px; margin-left: 2px;"></i></span>
                     </a>
                     <span class="cert-pill"><i class="fa-solid fa-graduation-cap"></i> Google · OpenAI · Anthropic ·
                         CISCO · HP LIFE · Moratuwa</span>
@@ -1754,16 +1783,17 @@
                         </div>
                     </div>
 
-                    <div class="cert-card" data-cert-title="Data Science Essentials with Python" data-cert-issuer="CISCO"
-                        data-cert-badge="badge-cisco" data-cert-date="Issued 21 Sep 2026"
+                    <div class="cert-card" data-cert-title="Data Science Essentials with Python"
+                        data-cert-issuer="CISCO" data-cert-badge="badge-cisco" data-cert-date="Issued 21 Sep 2026"
                         data-cert-img="images/Certificates/Cisco.png"
                         data-cert-desc="Python data analysis, statistical methods, data visualization & predictive modeling essentials.">
                         <div class="cert-thumb-box">
                             <span class="cert-verified-badge" title="Verified Credential"><i
                                     class="fa-solid fa-check"></i></span>
                             <span class="cert-issuer-badge badge-cisco">CISCO</span>
-                            <img src="images/Certificates/Cisco.png" alt="CISCO Data Science Essentials with Python Certificate"
-                                class="cert-thumb-img" loading="lazy">
+                            <img src="images/Certificates/Cisco.png"
+                                alt="CISCO Data Science Essentials with Python Certificate" class="cert-thumb-img"
+                                loading="lazy">
                             <div class="cert-thumb-overlay">
                                 <span class="cert-inspect-pill"><i class="fa-solid fa-magnifying-glass-plus"></i>
                                     Inspect Certificate</span>
@@ -1783,7 +1813,7 @@
                         </div>
                     </div>
 
-                                        <div class="cert-card" data-cert-title="Data Analytics Essentials" data-cert-issuer="CISCO"
+                    <div class="cert-card" data-cert-title="Data Analytics Essentials" data-cert-issuer="CISCO"
                         data-cert-badge="badge-cisco" data-cert-date="Issued 10 Oct 2026"
                         data-cert-img="images/Certificates/Data Analytic Essentials.png"
                         data-cert-desc="Data transformation, exploratory analysis, statistical evaluation, visualization &amp; business intelligence using Cisco Networking Academy.">
@@ -1791,8 +1821,8 @@
                             <span class="cert-verified-badge" title="Verified Credential"><i
                                     class="fa-solid fa-check"></i></span>
                             <span class="cert-issuer-badge badge-cisco">CISCO</span>
-                            <img src="images/Certificates/Data Analytic Essentials.png" alt="CISCO Data Analytics Essentials Certificate"
-                                class="cert-thumb-img" loading="lazy">
+                            <img src="images/Certificates/Data Analytic Essentials.png"
+                                alt="CISCO Data Analytics Essentials Certificate" class="cert-thumb-img" loading="lazy">
                             <div class="cert-thumb-overlay">
                                 <span class="cert-inspect-pill"><i class="fa-solid fa-magnifying-glass-plus"></i>
                                     Inspect Certificate</span>
@@ -1801,7 +1831,8 @@
                         <div class="cert-body">
                             <div>
                                 <h3 class="cert-title">Data Analytics Essentials</h3>
-                                <p class="cert-desc">Data transformation, exploratory analysis, statistical evaluation, visualization &amp; business intelligence.</p>
+                                <p class="cert-desc">Data transformation, exploratory analysis, statistical evaluation,
+                                    visualization &amp; business intelligence.</p>
                             </div>
                             <div class="cert-footer-meta">
                                 <span class="cert-issuer-name"><i class="fa-solid fa-building-columns"></i> CISCO
@@ -2071,15 +2102,16 @@
                         </div>
                     </div>
 
-                    <div class="cert-card" aria-hidden="true" data-cert-title="Data Science Essentials with Python" data-cert-issuer="CISCO"
-                        data-cert-badge="badge-cisco" data-cert-date="Issued 21 Sep 2026"
+                    <div class="cert-card" aria-hidden="true" data-cert-title="Data Science Essentials with Python"
+                        data-cert-issuer="CISCO" data-cert-badge="badge-cisco" data-cert-date="Issued 21 Sep 2026"
                         data-cert-img="images/Certificates/Cisco.png"
                         data-cert-desc="Python data analysis, statistical methods, data visualization & predictive modeling essentials.">
                         <div class="cert-thumb-box">
                             <span class="cert-verified-badge"><i class="fa-solid fa-check"></i></span>
                             <span class="cert-issuer-badge badge-cisco">CISCO</span>
-                            <img src="images/Certificates/Cisco.png" alt="CISCO Data Science Essentials with Python Certificate"
-                                class="cert-thumb-img" loading="lazy">
+                            <img src="images/Certificates/Cisco.png"
+                                alt="CISCO Data Science Essentials with Python Certificate" class="cert-thumb-img"
+                                loading="lazy">
                             <div class="cert-thumb-overlay">
                                 <span class="cert-inspect-pill"><i class="fa-solid fa-magnifying-glass-plus"></i>
                                     Inspect Certificate</span>
@@ -2097,33 +2129,35 @@
                                 <span class="cert-date"><i class="fa-regular fa-calendar"></i> Sep 2026</span>
                             </div>
                         </div>
-                                        <div class="cert-card" aria-hidden="true" data-cert-title="Data Analytics Essentials" data-cert-issuer="CISCO"
-                        data-cert-badge="badge-cisco" data-cert-date="Issued 10 Oct 2026"
-                        data-cert-img="images/Certificates/Data Analytic Essentials.png"
-                        data-cert-desc="Data transformation, exploratory analysis, statistical evaluation, visualization &amp; business intelligence using Cisco Networking Academy.">
-                        <div class="cert-thumb-box">
-                            <span class="cert-verified-badge"><i class="fa-solid fa-check"></i></span>
-                            <span class="cert-issuer-badge badge-cisco">CISCO</span>
-                            <img src="images/Certificates/Data Analytic Essentials.png" alt="CISCO Data Analytics Essentials Certificate"
-                                class="cert-thumb-img" loading="lazy">
-                            <div class="cert-thumb-overlay">
-                                <span class="cert-inspect-pill"><i class="fa-solid fa-magnifying-glass-plus"></i>
-                                    Inspect Certificate</span>
+                        <div class="cert-card" aria-hidden="true" data-cert-title="Data Analytics Essentials"
+                            data-cert-issuer="CISCO" data-cert-badge="badge-cisco" data-cert-date="Issued 10 Oct 2026"
+                            data-cert-img="images/Certificates/Data Analytic Essentials.png"
+                            data-cert-desc="Data transformation, exploratory analysis, statistical evaluation, visualization &amp; business intelligence using Cisco Networking Academy.">
+                            <div class="cert-thumb-box">
+                                <span class="cert-verified-badge"><i class="fa-solid fa-check"></i></span>
+                                <span class="cert-issuer-badge badge-cisco">CISCO</span>
+                                <img src="images/Certificates/Data Analytic Essentials.png"
+                                    alt="CISCO Data Analytics Essentials Certificate" class="cert-thumb-img"
+                                    loading="lazy">
+                                <div class="cert-thumb-overlay">
+                                    <span class="cert-inspect-pill"><i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        Inspect Certificate</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="cert-body">
-                            <div>
-                                <h3 class="cert-title">Data Analytics Essentials</h3>
-                                <p class="cert-desc">Data transformation, exploratory analysis, statistical evaluation, visualization &amp; business intelligence.</p>
-                            </div>
-                            <div class="cert-footer-meta">
-                                <span class="cert-issuer-name"><i class="fa-solid fa-building-columns"></i> CISCO
-                                    Academy</span>
-                                <span class="cert-date"><i class="fa-regular fa-calendar"></i> Oct 2026</span>
+                            <div class="cert-body">
+                                <div>
+                                    <h3 class="cert-title">Data Analytics Essentials</h3>
+                                    <p class="cert-desc">Data transformation, exploratory analysis, statistical
+                                        evaluation, visualization &amp; business intelligence.</p>
+                                </div>
+                                <div class="cert-footer-meta">
+                                    <span class="cert-issuer-name"><i class="fa-solid fa-building-columns"></i> CISCO
+                                        Academy</span>
+                                    <span class="cert-date"><i class="fa-regular fa-calendar"></i> Oct 2026</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
 
@@ -2809,18 +2843,152 @@
 
                     <div class="featured-project-inner">
                         <div class="project-image-wrapper featured-image-wrapper">
-                            <img src="images/AI-Powered Face Recognition Attendance Management System images/1.png"
-                                class="project-img" alt="AI Face Recognition Attendance System Preview" loading="lazy">
+                            <!-- Dual Mode Switcher (3D Device vs 2D Photo) -->
+                            <div class="device-view-switch-wrapper">
+                                <div class="device-view-switch">
+                                    <button type="button" class="device-switch-btn active" id="btnDevice3D" aria-label="3D Floating Device">
+                                        <i class="fa-solid fa-cube text-accent"></i> <span>3D Mockup</span>
+                                    </button>
+                                    <button type="button" class="device-switch-btn" id="btnDevicePhoto" aria-label="Static 2D Screenshot">
+                                        <i class="fa-regular fa-image"></i> <span>Static</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- 3D Interactive Device Stage (Zero CORS / Full Fidelity) -->
+                            <div class="featured-3d-stage" id="featured3dStage">
+                                <div class="device-glow-backdrop"></div>
+
+                                <!-- 3D Perspective Scene Pivot -->
+                                <div class="device-3d-scene" id="device3dScene">
+                                    <!-- Laptop 3D Model (MacBook Pro 16") -->
+                                    <div class="mockup-laptop" id="mockupLaptop">
+                                        <!-- Screen Lid Assembly (Dual-Sided) -->
+                                        <div class="laptop-lid">
+                                            <!-- Front Face: Screen & Bezel -->
+                                            <div class="laptop-lid-front">
+                                                <div class="laptop-camera-notch">
+                                                    <span class="webcam-lens"></span>
+                                                </div>
+                                                <div class="laptop-screen-bezel">
+                                                    <img src="images/AI-Powered Face Recognition Attendance Management System images/1.png"
+                                                        id="laptopScreenImg" class="device-screen-img" alt="3D Laptop Screen Preview">
+                                                    <div class="screen-glass-sheen"></div>
+                                                </div>
+                                            </div>
+                                            <!-- Back Face: Anodized Space Gray Aluminum Lid with Apple Logo -->
+                                            <div class="laptop-lid-back">
+                                                <div class="lid-metallic-sheen"></div>
+                                                <div class="lid-apple-logo"><i class="fa-brands fa-apple"></i></div>
+                                            </div>
+                                        </div>
+                                        <!-- Base Keyboard Chassis (Dual-Sided) -->
+                                        <div class="laptop-base">
+                                            <!-- Top Face: Keyboard, Trackpad & Front Notch -->
+                                            <div class="laptop-base-top">
+                                                <div class="laptop-keyboard-recess">
+                                                    <div class="laptop-key-grid"></div>
+                                                </div>
+                                                <div class="laptop-trackpad"></div>
+                                                <div class="laptop-front-notch"></div>
+                                            </div>
+                                            <!-- Bottom Face: Aluminum Underchassis Plate with Rubber Feet -->
+                                            <div class="laptop-base-bottom">
+                                                <div class="base-rubber-foot foot-tl"></div>
+                                                <div class="base-rubber-foot foot-tr"></div>
+                                                <div class="base-rubber-foot foot-bl"></div>
+                                                <div class="base-rubber-foot foot-br"></div>
+                                                <div class="base-engraving">MacBook Pro &bull; 16-inch</div>
+                                            </div>
+                                        </div>
+                                        <!-- Dedicated Laptop Floor Shadow -->
+                                        <div class="laptop-floor-shadow"></div>
+                                    </div>
+
+                                    <!-- Smartphone 3D Model (iPhone 16 Pro Dual-Sided) -->
+                                    <div class="mockup-phone" id="mockupPhone" style="display: none;">
+                                        <!-- Phone Front Face -->
+                                        <div class="phone-face phone-face-front">
+                                            <div class="phone-island-notch">
+                                                <span class="island-camera"></span>
+                                                <span class="island-sensor"></span>
+                                            </div>
+                                            <div class="phone-screen-frame">
+                                                <img src="images/QueueLess Mobile  App/4.jpeg"
+                                                    id="phoneScreenImg" class="device-screen-img phone-img" alt="3D Phone Screen Preview">
+                                                <div class="screen-glass-sheen"></div>
+                                            </div>
+                                            <div class="phone-button btn-vol-up"></div>
+                                            <div class="phone-button btn-vol-down"></div>
+                                            <div class="phone-button btn-power"></div>
+                                        </div>
+                                        <!-- Phone Back Face: Titanium Matte Back with Triple Camera Island -->
+                                        <div class="phone-face phone-face-back">
+                                            <div class="phone-camera-plateau">
+                                                <div class="cam-lens cam-lens-1"></div>
+                                                <div class="cam-lens cam-lens-2"></div>
+                                                <div class="cam-lens cam-lens-3"></div>
+                                                <div class="cam-flash"></div>
+                                                <div class="cam-lidar"></div>
+                                            </div>
+                                            <div class="phone-apple-logo"><i class="fa-brands fa-apple"></i></div>
+                                            <div class="phone-button btn-vol-up"></div>
+                                            <div class="phone-button btn-vol-down"></div>
+                                            <div class="phone-button btn-power"></div>
+                                        </div>
+                                        <!-- Dedicated Phone Floor Shadow (Beneath Phone Bottom) -->
+                                        <div class="phone-floor-shadow"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 3D Device Control HUD -->
+                                <div class="device-stage-hud">
+                                    <div class="device-hud-top">
+                                        <div class="device-type-toggle" id="deviceTypeToggle">
+                                            <button type="button" class="device-type-btn active" id="btnTypeLaptop" title="Laptop 3D View">
+                                                <i class="fa-solid fa-laptop"></i> <span>Laptop</span>
+                                            </button>
+                                            <button type="button" class="device-type-btn" id="btnTypePhone" title="Mobile 3D View">
+                                                <i class="fa-solid fa-mobile-screen"></i> <span>Mobile</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="device-hud-bottom">
+                                        <div class="device-slide-controls">
+                                            <button type="button" class="device-slide-btn" id="btnDevicePrevSlide" title="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                                            <span class="device-slide-counter" id="deviceSlideCounter">1 / 16</span>
+                                            <button type="button" class="device-slide-btn" id="btnDeviceNextSlide" title="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                                        </div>
+                                        <div class="device-preset-controls">
+                                            <button type="button" class="device-preset-btn" id="btnPresetIso" title="Perspective Tilt"><i class="fa-solid fa-compass"></i></button>
+                                            <button type="button" class="device-preset-btn" id="btnPresetFront" title="Frontal Screen View"><i class="fa-solid fa-tv"></i></button>
+                                            <button type="button" class="device-preset-btn" id="btnPresetReset" title="Reset Spin"><i class="fa-solid fa-rotate-right"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="device-interaction-hint">
+                                        <i class="fa-solid fa-hand-pointer"></i> Drag to rotate 360&deg; &bull; Tilt on hover
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Static 2D Preview Container (Toggled via Static button) -->
+                            <div class="featured-static-preview" id="featuredStaticContainer" style="display: none;">
+                                <img src="images/AI-Powered Face Recognition Attendance Management System images/1.png"
+                                    class="project-img" id="featuredStaticImg" alt="AI Face Recognition Attendance System Preview" loading="lazy">
+                            </div>
+
                             <span class="status-badge status-completed">Completed | Aug 2026</span>
                         </div>
                         <div class="project-content featured-content">
                             <div class="project-header">
-                                <h3 class="project-title" style="margin-bottom: 0;">AI Face Recognition Attendance
+                                <h3 class="project-title" id="featuredStageTitle" style="margin-bottom: 0;">AI Face Recognition Attendance
                                     System</h3>
                             </div>
-                            <p class="project-desc">Full-stack biometric attendance platform with decoupled
+                            <p class="project-desc" id="featuredStageDesc">Full-stack biometric attendance platform with decoupled
                                 microservices, 128D facial embeddings, and multi-tier anti-spoofing.</p>
-                            <ul class="project-features">
+                            <ul class="project-features" id="featuredStageFeatures">
                                 <li>Decoupled microservices (React 18 + Node.js + Python Flask/OpenCV)</li>
                                 <li>128D facial vector embeddings & Cosine Similarity matching (&ge; 0.75)</li>
                                 <li>Anti-spoofing engine (EAR blink detection & Laplacian texture variance)</li>
@@ -2840,8 +3008,9 @@
                                 <a href="https://github.com/Kavi20021026/AI-face-recognition-attendance-system"
                                     target="_blank" rel="noopener" class="btn-secondary btn-sm github-btn-icon"
                                     aria-label="View Github code"><i class="fa-brands fa-github"></i></a>
-                                <a href="#" class="btn-primary btn-sm disabled" aria-disabled="true"><i
-                                        class="fa-solid fa-external-link"></i> Live Demo</a>
+                                <button type="button" class="btn-primary btn-sm" id="btnInteractive3DPreview">
+                                    <i class="fa-solid fa-cube"></i> Interactive 3D Preview
+                                </button>
                                 <button type="button" class="btn-outline btn-sm open-details-btn"><i
                                         class="fa-solid fa-file-lines"></i> Case Study</button>
                             </div>
@@ -2909,7 +3078,8 @@
                         <div class="project-header">
                             <h3 class="project-title" style="margin-bottom: 0;">Spendly Expense Tracker</h3>
                         </div>
-                        <p class="project-desc">Modern personal expense &amp; budget tracking mobile app with real-time financial analytics, instant search, and dual theme engine.</p>
+                        <p class="project-desc">Modern personal expense &amp; budget tracking mobile app with real-time
+                            financial analytics, instant search, and dual theme engine.</p>
                         <ul class="project-features">
                             <li>Real-time expense tracking &amp; rolling budget averages</li>
                             <li>Interactive analytics with visual category breakdown</li>
@@ -2923,9 +3093,9 @@
                             <span class="project-badge">Local Vault</span>
                         </div>
                         <div class="project-cta-group">
-                            <a href="https://github.com/Kavi20021026" target="_blank"
-                                rel="noopener" class="btn-secondary btn-sm github-btn-icon"
-                                aria-label="View Github code"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://github.com/Kavi20021026" target="_blank" rel="noopener"
+                                class="btn-secondary btn-sm github-btn-icon" aria-label="View Github code"><i
+                                    class="fa-brands fa-github"></i></a>
                             <a href="#" class="btn-primary btn-sm disabled" aria-disabled="true"><i
                                     class="fa-solid fa-mobile-screen"></i> Mobile App</a>
                             <button type="button" class="btn-outline btn-sm open-details-btn"><i
@@ -2975,7 +3145,7 @@
                             <a href="https://doi.org/10.5281/zenodo.22746211" target="_blank" rel="noopener"
                                 class="btn-primary btn-sm" title="Open Zenodo Record"><i
                                     class="fa-solid fa-book-open"></i> Read Paper</a>
-                            
+
                             <button type="button" class="btn-outline btn-sm open-details-btn"><i
                                     class="fa-solid fa-file-lines"></i> Case Study</button>
                         </div>
@@ -3021,7 +3191,7 @@
                             <a href="https://doi.org/10.5281/zenodo.22746211" target="_blank" rel="noopener"
                                 class="btn-secondary btn-sm" title="Read Research Paper on Zenodo"><i
                                     class="fa-solid fa-book-bookmark"></i> Paper</a>
-                           
+
                             <button type="button" class="btn-outline btn-sm open-details-btn"><i
                                     class="fa-solid fa-file-lines"></i> Case Study</button>
                         </div>
@@ -3254,10 +3424,16 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="glass-card timeline-card">
-                        <div class="timeline-date"><i class="fa-solid fa-wallet"></i> Oct 2026 &bull; Mobile Finance App</div>
+                        <div class="timeline-date"><i class="fa-solid fa-wallet"></i> Oct 2026 &bull; Mobile Finance App
+                        </div>
                         <h3>Spendly: Smart Personal Expense &amp; Financial Analytics App</h3>
-                        <div class="timeline-subtitle">Flutter &bull; Dart &bull; Offline-First Encrypted Vault &bull; Data Visualization</div>
-                        <p class="timeline-desc">Designed and built Spendly, an elegant personal expense tracking and budgeting mobile application. Engineered with an offline-first encrypted vault architecture, real-time monthly financial metrics, rolling average calculations, donut chart category breakdowns, quick transaction denomination chips, instant keyword/category filtering, and a seamless dual Dark/Light theme engine.</p>
+                        <div class="timeline-subtitle">Flutter &bull; Dart &bull; Offline-First Encrypted Vault &bull;
+                            Data Visualization</div>
+                        <p class="timeline-desc">Designed and built Spendly, an elegant personal expense tracking and
+                            budgeting mobile application. Engineered with an offline-first encrypted vault architecture,
+                            real-time monthly financial metrics, rolling average calculations, donut chart category
+                            breakdowns, quick transaction denomination chips, instant keyword/category filtering, and a
+                            seamless dual Dark/Light theme engine.</p>
                         <div class="timeline-paper-actions"
                             style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap;">
                             <a href="https://github.com/Kavi20021026" target="_blank" rel="noopener"
@@ -3314,8 +3490,9 @@
                             <a href="https://doi.org/10.5281/zenodo.22746211" target="_blank" rel="noopener"
                                 class="btn-primary btn-sm"><i class="fa-solid fa-book-open"></i> Read Paper (DOI)</a>
                             <a href="https://orcid.org/0009-0003-4370-7428" target="_blank" rel="noopener"
-                                class="btn-secondary btn-sm timeline-orcid-btn" title="View Author on ORCID (0009-0003-4370-7428)"><i
-                                    class="fa-brands fa-orcid" style="color: #a6ce39;"></i> View Author on ORCID</a>
+                                class="btn-secondary btn-sm timeline-orcid-btn"
+                                title="View Author on ORCID (0009-0003-4370-7428)"><i class="fa-brands fa-orcid"
+                                    style="color: #a6ce39;"></i> View Author on ORCID</a>
                             <a href="images/SDMS_Disaster_Management_Research_Paper_v1.0.pdf" download
                                 class="btn-secondary btn-sm" title="Download Research Paper PDF"><i
                                     class="fa-solid fa-file-pdf"></i> Download PDF</a>
@@ -3478,7 +3655,7 @@
 
                     <h4 class="social-title">Connect &amp; Verified Profiles</h4>
                     <div class="social-links">
-                         <a href="https://wa.me/94766107191?text=Hello%20I%20saw%20your%20portfolio" target="_blank"
+                        <a href="https://wa.me/94766107191?text=Hello%20I%20saw%20your%20portfolio" target="_blank"
                             rel="noopener" class="social-btn" aria-label="WhatsApp Chat" title="WhatsApp"><i
                                 class="fa-brands fa-whatsapp"></i></a>
                         <a href="https://github.com/Kavi20021026" target="_blank" rel="noopener" class="social-btn"
@@ -3487,17 +3664,18 @@
                             rel="noopener" class="social-btn" aria-label="LinkedIn Profile" title="LinkedIn"><i
                                 class="fa-brands fa-linkedin-in"></i></a>
                         <a href="https://www.credly.com/users/kavindu-madushan-dissanayaka" target="_blank"
-                            rel="noopener" class="social-btn social-btn-credly" aria-label="Credly Portfolio" title="Credly Verified Badges"><i
-                                class="fa-solid fa-award"></i></a>
-                        <a href="https://orcid.org/0009-0003-4370-7428" target="_blank"
-                            rel="noopener" class="social-btn social-btn-orcid" aria-label="ORCID iD" title="ORCID Researcher Record"><i
-                                class="fa-brands fa-orcid" ></i></a>
-                                <a href="https://facebook.com/kavinduamerica.dissanayaka" target="_blank" rel="noopener"
-                            class="social-btn" aria-label="Facebook Profile" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="mailto:kavindudissanayka2018@gmail.com" class="social-btn" aria-label="Email" title="Direct Email"><i
-                                class="fa-solid fa-envelope"></i></a>
-                       
-                        
+                            rel="noopener" class="social-btn social-btn-credly" aria-label="Credly Portfolio"
+                            title="Credly Verified Badges"><i class="fa-solid fa-award"></i></a>
+                        <a href="https://orcid.org/0009-0003-4370-7428" target="_blank" rel="noopener"
+                            class="social-btn social-btn-orcid" aria-label="ORCID iD" title="ORCID Researcher Record"><i
+                                class="fa-brands fa-orcid"></i></a>
+                        <a href="https://facebook.com/kavinduamerica.dissanayaka" target="_blank" rel="noopener"
+                            class="social-btn" aria-label="Facebook Profile" title="Facebook"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="mailto:kavindudissanayka2018@gmail.com" class="social-btn" aria-label="Email"
+                            title="Direct Email"><i class="fa-solid fa-envelope"></i></a>
+
+
                     </div>
 
                     <div class="cv-download-wrapper">
@@ -3541,21 +3719,28 @@
         <div class="container night-earth-content-wrap">
 
             <!-- Verified Researcher & Credential Profiles -->
-            <div class="footer-verified-profiles" style="margin-bottom: 24px; display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap;">
-                <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 700;"></span>
-                <a href="https://github.com/Kavi20021026" target="_blank" rel="noopener" class="cert-pill" style="padding: 4px 12px; font-size: 11.5px;">
+            <div class="footer-verified-profiles"
+                style="margin-bottom: 24px; display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <span
+                    style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 700;"></span>
+                <a href="https://github.com/Kavi20021026" target="_blank" rel="noopener" class="cert-pill"
+                    style="padding: 4px 12px; font-size: 11.5px;">
                     <i class="fa-brands fa-github"></i> GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/kavindu-dissanayake-b48466221" target="_blank" rel="noopener" class="cert-pill" style="padding: 4px 12px; font-size: 11.5px;">
+                <a href="https://www.linkedin.com/in/kavindu-dissanayake-b48466221" target="_blank" rel="noopener"
+                    class="cert-pill" style="padding: 4px 12px; font-size: 11.5px;">
                     <i class="fa-brands fa-linkedin-in" style="color: #0a66c2;"></i> LinkedIn
                 </a>
-                <a href="https://www.credly.com/users/kavindu-madushan-dissanayaka" target="_blank" rel="noopener" class="cert-pill cert-pill-credly" style="padding: 4px 12px; font-size: 11.5px;">
+                <a href="https://www.credly.com/users/kavindu-madushan-dissanayaka" target="_blank" rel="noopener"
+                    class="cert-pill cert-pill-credly" style="padding: 4px 12px; font-size: 11.5px;">
                     <i class="fa-solid fa-award" style="color: #ff6b35;"></i> Credly
                 </a>
-                <a href="https://orcid.org/0009-0003-4370-7428" target="_blank" rel="noopener" class="cert-pill cert-pill-orcid" style="padding: 4px 12px; font-size: 11.5px;">
+                <a href="https://orcid.org/0009-0003-4370-7428" target="_blank" rel="noopener"
+                    class="cert-pill cert-pill-orcid" style="padding: 4px 12px; font-size: 11.5px;">
                     <i class="fa-brands fa-orcid" style="color: #a6ce39;"></i> ORCID
                 </a>
-                <a href="https://doi.org/10.5281/zenodo.22746211" target="_blank" rel="noopener" class="cert-pill" style="padding: 4px 12px; font-size: 11.5px;">
+                <a href="https://doi.org/10.5281/zenodo.22746211" target="_blank" rel="noopener" class="cert-pill"
+                    style="padding: 4px 12px; font-size: 11.5px;">
                     <i class="fa-solid fa-graduation-cap" style="color: #38bdf8;"></i> Zenodo DOI
                 </a>
             </div>
@@ -4205,7 +4390,13 @@
 
             // Clicking card (except direct links/buttons) opens modal slideshow
             card.addEventListener('click', (e) => {
-                if (e.target.closest('a') || e.target.closest('.card-slide-btn') || e.target.classList.contains('github-link')) {
+                if (e.target.closest('a') || 
+                    e.target.closest('.card-slide-btn') || 
+                    e.target.closest('.featured-3d-stage') || 
+                    e.target.closest('.device-view-switch-wrapper') || 
+                    e.target.closest('#btnInteractive3DPreview') || 
+                    e.target.closest('.btn-inspect-device-3d') || 
+                    e.target.classList.contains('github-link')) {
                     return; // Let direct links/controls work
                 }
 
@@ -5674,6 +5865,369 @@ Type <span class="term-out-success">'help'</span> or <span class="term-out-succe
 
             // Start Animation Loop
             animFrameId = requestAnimationFrame(render);
+        })();
+    </script>
+
+    <!-- ==================== 3D FLOATING DEVICE MOCKUP FOR FEATURED PROJECTS (OPTION 4) ==================== -->
+    <script>
+        (function initFeatured3DDeviceShowcase() {
+            const container = document.getElementById('featured3dStage');
+            const scene = document.getElementById('device3dScene');
+            const laptop = document.getElementById('mockupLaptop');
+            const phone = document.getElementById('mockupPhone');
+            const laptopImg = document.getElementById('laptopScreenImg');
+            const phoneImg = document.getElementById('phoneScreenImg');
+            const shadowDisc = document.getElementById('deviceFloorShadow');
+            const staticContainer = document.getElementById('featuredStaticContainer');
+            const staticImg = document.getElementById('featuredStaticImg');
+
+            const btn3D = document.getElementById('btnDevice3D');
+            const btnPhoto = document.getElementById('btnDevicePhoto');
+            const modelLabel = document.getElementById('deviceModelText');
+            const modelIcon = document.getElementById('deviceModelIcon');
+            const btnTypeLaptop = document.getElementById('btnTypeLaptop');
+            const btnTypePhone = document.getElementById('btnTypePhone');
+            const btnPrevSlide = document.getElementById('btnDevicePrevSlide');
+            const btnNextSlide = document.getElementById('btnDeviceNextSlide');
+            const slideCounter = document.getElementById('deviceSlideCounter');
+            const btnPresetIso = document.getElementById('btnPresetIso');
+            const btnPresetFront = document.getElementById('btnPresetFront');
+            const btnPresetReset = document.getElementById('btnPresetReset');
+            const btnInteractive3D = document.getElementById('btnInteractive3DPreview');
+            const featuredTitle = document.getElementById('featuredStageTitle');
+            const featuredDesc = document.getElementById('featuredStageDesc');
+
+            if (!container || !scene) return;
+
+            // ===== 1. PROJECT DATA & SLIDES STATE =====
+            let currentDeviceType = 'laptop';
+            let is3DActive = true;
+            let currentImages = [];
+            let currentSlideIndex = 0;
+
+            // Default Featured Project images (Face Recognition)
+            const featuredCard = document.querySelector('.featured-project-card');
+            if (featuredCard && featuredCard.dataset.images) {
+                currentImages = featuredCard.dataset.images.split(',').map(s => s.trim()).filter(Boolean);
+            }
+            if (!currentImages.length) {
+                currentImages = [
+                    'images/AI-Powered Face Recognition Attendance Management System images/1.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/2.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/3.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/4.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/5.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/6.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/7.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/8.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/9.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/10.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/11.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/12.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/13.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/14.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/15.png',
+                    'images/AI-Powered Face Recognition Attendance Management System images/16.png'
+                ];
+            }
+
+            // ===== 2. SLIDE DISPLAY FUNCTION =====
+            function updateSlide(index) {
+                if (!currentImages.length) return;
+                if (index < 0) index = currentImages.length - 1;
+                if (index >= currentImages.length) index = 0;
+                currentSlideIndex = index;
+
+                const src = currentImages[currentSlideIndex];
+
+                // Direct DOM img update (Bypasses WebGL file:// CORS limits completely)
+                if (laptopImg) {
+                    laptopImg.style.opacity = '0.5';
+                    laptopImg.src = src;
+                    laptopImg.onload = () => { laptopImg.style.opacity = '1'; };
+                    laptopImg.onerror = () => { laptopImg.style.opacity = '1'; };
+                }
+                if (phoneImg) {
+                    phoneImg.style.opacity = '0.5';
+                    phoneImg.src = src;
+                    phoneImg.onload = () => { phoneImg.style.opacity = '1'; };
+                    phoneImg.onerror = () => { phoneImg.style.opacity = '1'; };
+                }
+                if (staticImg) {
+                    staticImg.src = src;
+                }
+                if (slideCounter) {
+                    slideCounter.textContent = (currentSlideIndex + 1) + ' / ' + currentImages.length;
+                }
+            }
+
+            // Slide buttons
+            if (btnPrevSlide) {
+                btnPrevSlide.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updateSlide(currentSlideIndex - 1);
+                });
+            }
+            if (btnNextSlide) {
+                btnNextSlide.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updateSlide(currentSlideIndex + 1);
+                });
+            }
+
+            // ===== 3. DEVICE SWITCHING =====
+            function setDeviceType(type) {
+                currentDeviceType = type;
+                if (type === 'laptop') {
+                    if (laptop) laptop.style.display = 'block';
+                    if (phone) phone.style.display = 'none';
+                    if (btnTypeLaptop) btnTypeLaptop.classList.add('active');
+                    if (btnTypePhone) btnTypePhone.classList.remove('active');
+                    if (modelLabel) modelLabel.textContent = 'MacBook Pro 16"';
+                    if (modelIcon) modelIcon.className = 'fa-solid fa-laptop text-accent';
+                } else {
+                    if (laptop) laptop.style.display = 'none';
+                    if (phone) phone.style.display = 'block';
+                    if (btnTypeLaptop) btnTypeLaptop.classList.remove('active');
+                    if (btnTypePhone) btnTypePhone.classList.add('active');
+                    if (modelLabel) modelLabel.textContent = 'iPhone 16 Pro';
+                    if (modelIcon) modelIcon.className = 'fa-solid fa-mobile-screen text-accent';
+                }
+            }
+
+            if (btnTypeLaptop) {
+                btnTypeLaptop.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    setDeviceType('laptop');
+                });
+            }
+            if (btnTypePhone) {
+                btnTypePhone.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    setDeviceType('phone');
+                });
+            }
+
+            // ===== 4. 3D VS STATIC 2D TOGGLE =====
+            const featuredWrapper = container.closest('.featured-image-wrapper');
+
+            function setMode(is3D) {
+                is3DActive = is3D;
+                if (is3D) {
+                    if (btn3D) btn3D.classList.add('active');
+                    if (btnPhoto) btnPhoto.classList.remove('active');
+                    container.style.display = 'flex';
+                    if (staticContainer) staticContainer.style.display = 'none';
+                    if (featuredWrapper) {
+                        featuredWrapper.classList.remove('static-mode-active');
+                    }
+                } else {
+                    if (btnPhoto) btnPhoto.classList.add('active');
+                    if (btn3D) btn3D.classList.remove('active');
+                    container.style.display = 'none';
+                    if (staticContainer) staticContainer.style.display = 'block';
+                    if (featuredWrapper) {
+                        featuredWrapper.classList.add('static-mode-active');
+                    }
+                }
+            }
+
+            if (btn3D) {
+                btn3D.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    setMode(true);
+                });
+            }
+
+            if (btnPhoto) {
+                btnPhoto.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    setMode(false);
+                });
+            }
+
+            // ===== 5. 3D ROTATION, PARALLAX & DRAG ENGINE =====
+            const DEFAULT_ROT_X = 14;
+            const DEFAULT_ROT_Y = -22;
+            const DEFAULT_ROT_Z = 0;
+
+            let curRotX = DEFAULT_ROT_X;
+            let curRotY = DEFAULT_ROT_Y;
+            let curRotZ = DEFAULT_ROT_Z;
+
+            let targetRotX = DEFAULT_ROT_X;
+            let targetRotY = DEFAULT_ROT_Y;
+            let targetRotZ = DEFAULT_ROT_Z;
+
+            let mouseTiltX = 0;
+            let mouseTiltY = 0;
+
+            let isDragging = false;
+            let startPointerX = 0;
+            let startPointerY = 0;
+            let dragStartRotX = DEFAULT_ROT_X;
+            let dragStartRotY = DEFAULT_ROT_Y;
+
+            function apply3DTransform() {
+                curRotX += (targetRotX + mouseTiltX - curRotX) * 0.12;
+                curRotY += (targetRotY + mouseTiltY - curRotY) * 0.12;
+                curRotZ += (targetRotZ - curRotZ) * 0.12;
+
+                scene.style.transform = 'rotateX(' + curRotX.toFixed(2) + 'deg) rotateY(' + curRotY.toFixed(2) + 'deg) rotateZ(' + curRotZ.toFixed(2) + 'deg)';
+            }
+
+            // Mouse parallax
+            container.addEventListener('mousemove', (e) => {
+                if (isDragging) return;
+                const rect = container.getBoundingClientRect();
+                const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+
+                mouseTiltY = nx * 14;
+                mouseTiltX = -ny * 10;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                mouseTiltX = 0;
+                mouseTiltY = 0;
+            });
+
+            // 360 Drag Rotation (Mouse & Touch)
+            function onPointerDown(e) {
+                if (e.target.closest('.device-stage-hud') || e.target.closest('.device-view-switch-wrapper')) return;
+                isDragging = true;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                startPointerX = clientX;
+                startPointerY = clientY;
+                dragStartRotX = targetRotX;
+                dragStartRotY = targetRotY;
+                scene.style.transition = 'none';
+            }
+
+            function onPointerMove(e) {
+                if (!isDragging) return;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                const deltaX = clientX - startPointerX;
+                const deltaY = clientY - startPointerY;
+
+                targetRotY = dragStartRotY + deltaX * 0.55;
+                targetRotX = Math.max(-50, Math.min(50, dragStartRotX - deltaY * 0.45));
+            }
+
+            function onPointerUp() {
+                if (isDragging) {
+                    isDragging = false;
+                    scene.style.transition = 'transform 0.08s ease-out';
+                }
+            }
+
+            container.addEventListener('mousedown', onPointerDown);
+            window.addEventListener('mousemove', onPointerMove);
+            window.addEventListener('mouseup', onPointerUp);
+
+            container.addEventListener('touchstart', onPointerDown, { passive: true });
+            window.addEventListener('touchmove', onPointerMove, { passive: true });
+            window.addEventListener('touchend', onPointerUp);
+
+            // ===== 6. PRESET ANGLE BUTTONS =====
+            if (btnPresetIso) {
+                btnPresetIso.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    targetRotX = DEFAULT_ROT_X;
+                    targetRotY = DEFAULT_ROT_Y;
+                    targetRotZ = 0;
+                });
+            }
+
+            if (btnPresetFront) {
+                btnPresetFront.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    targetRotX = 0;
+                    targetRotY = 0;
+                    targetRotZ = 0;
+                });
+            }
+
+            if (btnPresetReset) {
+                btnPresetReset.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    targetRotY += 360;
+                    targetRotX = DEFAULT_ROT_X;
+                    targetRotZ = 0;
+                });
+            }
+
+            if (btnInteractive3D) {
+                btnInteractive3D.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    if (!is3DActive && btn3D) btn3D.click();
+                    targetRotY += 360;
+                    container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            }
+
+            // Prevent clicks inside 3D stage from bubbling up to the project card modal
+            container.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // ===== 7. INSPECT IN 3D BUTTONS ON ALL PROJECT CARDS =====
+            const projectCards = document.querySelectorAll('.projects-grid .project-card');
+            projectCards.forEach(card => {
+                const ctaGroup = card.querySelector('.project-cta-group');
+                if (!ctaGroup) return;
+
+                const isMobile = card.classList.contains('filter-mobile') || 
+                                 (card.dataset.title && card.dataset.title.toLowerCase().includes('mobile'));
+
+                const inspectBtn = document.createElement('button');
+                inspectBtn.type = 'button';
+                inspectBtn.className = 'btn-outline btn-sm btn-inspect-device-3d';
+                inspectBtn.title = 'Inspect in 3D Device';
+                inspectBtn.innerHTML = '<i class="fa-solid fa-cube text-accent"></i> ' + (isMobile ? '3D Phone' : '3D Laptop');
+
+                inspectBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+
+                    if (!is3DActive && btn3D) btn3D.click();
+
+                    const title = card.querySelector('.project-title')?.textContent || 'Project Showcase';
+                    const desc = card.querySelector('.project-desc')?.textContent || '';
+                    const rawImages = card.dataset.images ? card.dataset.images.split(',').map(s => s.trim()).filter(Boolean) : [];
+
+                    if (rawImages.length > 0) {
+                        currentImages = rawImages;
+                    }
+
+                    if (featuredTitle) featuredTitle.textContent = title;
+                    if (featuredDesc) featuredDesc.textContent = desc;
+
+                    setDeviceType(isMobile ? 'phone' : 'laptop');
+                    updateSlide(0);
+            setMode(true);
+
+                    // Smooth flip into view
+                    targetRotY += 360;
+                    container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+
+                ctaGroup.appendChild(inspectBtn);
+            });
+
+            // ===== 8. RAF TICK ANIMATION =====
+            function tick() {
+                if (is3DActive) {
+                    apply3DTransform();
+                }
+                requestAnimationFrame(tick);
+            }
+
+            // Initialize default slide
+            updateSlide(0);
+            tick();
         })();
     </script>
 </body>

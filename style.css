@@ -4121,6 +4121,7 @@ textarea.form-input~.form-label {
     box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
+
 .workspace-btn-cv:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(99, 102, 241, 0.5);
@@ -4133,6 +4134,7 @@ textarea.form-input~.form-label {
     color: #25d366 !important;
     border: 1px solid rgba(37, 211, 102, 0.35);
 }
+
 .workspace-btn-wa:hover {
     background: rgba(37, 211, 102, 0.22);
     border-color: #25d366;
@@ -4147,6 +4149,7 @@ textarea.form-input~.form-label {
     color: var(--text-primary) !important;
     border: 1px solid var(--card-border);
 }
+
 .workspace-btn-mail:hover {
     background: rgba(6, 182, 212, 0.12);
     border-color: var(--accent);
@@ -4161,6 +4164,7 @@ textarea.form-input~.form-label {
     color: var(--text-primary) !important;
     border: 1px solid var(--card-border);
 }
+
 .workspace-btn-gh:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.3);
@@ -4803,4 +4807,784 @@ textarea.form-input~.form-label {
     color: var(--text-secondary);
     margin-top: 4px;
     font-weight: 500;
+}
+
+/* ==========================================================================
+   3D FLOATING DEVICE MOCKUP & SHOWCASE (OPTION 4)
+   ========================================================================== */
+
+.featured-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3D vs Static View Switcher Pill */
+.device-view-switch-wrapper {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 12;
+}
+
+.device-view-switch {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(14, 18, 30, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-full);
+    padding: 3px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.light-mode .device-view-switch {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(99, 102, 241, 0.15);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.device-switch-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    padding: 4px 11px;
+    border-radius: var(--border-radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all var(--transition-fast);
+}
+
+.device-switch-btn:hover {
+    color: var(--text-primary);
+}
+
+.device-switch-btn.active {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.35) 0%, rgba(6, 182, 212, 0.3) 100%);
+    border-color: rgba(6, 182, 212, 0.5);
+    color: #f8fafc;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
+}
+
+.light-mode .device-switch-btn.active {
+    background: linear-gradient(135deg, #4f46e5 0%, #0891b2 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+/* 3D Stage Container */
+.featured-3d-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 45%, rgba(99, 102, 241, 0.12) 0%, rgba(6, 10, 22, 0.98) 75%);
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+    overflow: hidden;
+    perspective: 1200px;
+}
+
+.light-mode .featured-3d-stage {
+    background: radial-gradient(circle at 50% 45%, rgba(79, 70, 229, 0.08) 0%, rgba(241, 245, 249, 0.98) 75%);
+}
+
+.featured-3d-stage:active {
+    cursor: grabbing;
+}
+
+.device-glow-backdrop {
+    position: absolute;
+    width: 320px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.28) 0%, rgba(99, 102, 241, 0.18) 50%, transparent 70%);
+    filter: blur(55px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 3D Scene World Pivot */
+.device-3d-scene {
+    position: relative;
+    width: 360px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transition: transform 0.08s ease-out;
+    z-index: 5;
+}
+
+/* Float Animation */
+@keyframes deviceLevitate {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ==================== 3D LAPTOP (MacBook Pro 16") ==================== */
+.mockup-laptop {
+    position: relative;
+    width: 360px;
+    height: 260px;
+    transform-style: preserve-3d;
+    animation: deviceLevitate 4s ease-in-out infinite alternate;
+}
+
+/* Laptop Screen Lid - Dual-Sided 3D Assembly */
+.laptop-lid {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 330px;
+    height: 210px;
+    transform-origin: bottom center;
+    transform: rotateX(-3deg);
+    transform-style: preserve-3d;
+    z-index: 2;
+}
+
+/* Front Face: Screen & Bezel */
+.laptop-lid-front {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #1e2638, #0e1320);
+    border-radius: 12px 12px 2px 2px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(6, 182, 212, 0.18);
+    padding: 7px 7px 12px 7px;
+    display: flex;
+    flex-direction: column;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateY(0deg) translateZ(1px);
+}
+
+.light-mode .laptop-lid-front {
+    background: linear-gradient(145deg, #cbd5e1, #94a3b8);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* Back Face: Anodized Space Gray Aluminum Lid */
+.laptop-lid-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1f273a 0%, #131929 50%, #0d121e 100%);
+    border-radius: 12px 12px 2px 2px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateY(180deg) translateZ(1px);
+    overflow: hidden;
+}
+
+.light-mode .laptop-lid-back {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.lid-metallic-sheen {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.08) 50%, transparent 60%);
+    pointer-events: none;
+}
+
+.lid-apple-logo {
+    font-size: 38px;
+    color: rgba(255, 255, 255, 0.85);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.light-mode .lid-apple-logo {
+    color: rgba(30, 41, 59, 0.85);
+}
+
+.laptop-camera-notch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7px;
+    margin-bottom: 3px;
+}
+
+.webcam-lens {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #06b6d4;
+    box-shadow: 0 0 6px #06b6d4;
+}
+
+.laptop-screen-bezel {
+    position: relative;
+    flex: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #030712;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.device-screen-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.25s ease;
+}
+
+.screen-glass-sheen {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(125deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 35%, transparent 65%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Laptop Base Chassis (Keyboard Deck) - Dual-Sided */
+.laptop-base {
+    position: absolute;
+    top: 225px;
+    left: 0px;
+    width: 360px;
+    height: 215px;
+    transform-origin: top center;
+    transform: rotateX(76deg);
+    transform-style: preserve-3d;
+    z-index: 3;
+}
+
+/* Base Top Face: Keyboard & Trackpad */
+.laptop-base-top {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #182030 0%, #0d121e 100%);
+    border-radius: 4px 4px 14px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateY(0deg) translateZ(1px);
+}
+
+.light-mode .laptop-base-top {
+    background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.laptop-keyboard-recess {
+    width: 90%;
+    height: 108px;
+    background: #0a0f1d;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.65);
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.laptop-key-grid {
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 13px, rgba(255, 255, 255, 0.08) 14px),
+        repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(255, 255, 255, 0.08) 20px);
+    border-radius: 3px;
+}
+
+.laptop-trackpad {
+    width: 100px;
+    height: 62px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #182236, #111724);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.light-mode .laptop-trackpad {
+    background: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.laptop-front-notch {
+    position: absolute;
+    bottom: 3px;
+    width: 44px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* Base Bottom Face: Aluminum Underchassis with Rubber Feet */
+.laptop-base-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #131a28 0%, #0a0e18 100%);
+    border-radius: 4px 4px 14px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateX(180deg) translateZ(1px);
+}
+
+.light-mode .laptop-base-bottom {
+    background: linear-gradient(180deg, #cbd5e1 0%, #94a3b8 100%);
+}
+
+.base-rubber-foot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #030712;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+.foot-tl { top: 12px; left: 16px; }
+.foot-tr { top: 12px; right: 16px; }
+.foot-bl { bottom: 12px; left: 16px; }
+.foot-br { bottom: 12px; right: 16px; }
+
+.base-engraving {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.25);
+    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.light-mode .base-engraving {
+    color: rgba(0, 0, 0, 0.35);
+}
+
+/* ==================== 3D SMARTPHONE (iPhone 16 Pro Dual-Sided) ==================== */
+.mockup-phone {
+    position: relative;
+    width: 180px;
+    height: 360px;
+    transform-style: preserve-3d;
+    animation: deviceLevitate 4s ease-in-out infinite alternate;
+}
+
+.phone-face {
+    position: absolute;
+    inset: 0;
+    border-radius: 36px;
+    border: 3.5px solid #2d3748;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.phone-face-front {
+    background: linear-gradient(145deg, #1f2738, #0e1422);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    transform: rotateY(0deg) translateZ(2px);
+}
+
+.phone-face-back {
+    background: linear-gradient(145deg, #1a2233 0%, #101524 50%, #0d121e 100%);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    transform: rotateY(180deg) translateZ(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.light-mode .phone-face-front,
+.light-mode .phone-face-back {
+    background: #e2e8f0;
+    border-color: #94a3b8;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+}
+
+.phone-apple-logo {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.8);
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+.light-mode .phone-apple-logo {
+    color: rgba(30, 41, 59, 0.85);
+}
+
+.phone-camera-plateau {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 68px;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cam-lens {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #1e293b 0%, #030712 70%);
+    border: 2px solid #334155;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), inset 0 0 4px rgba(6, 182, 212, 0.4);
+}
+.cam-lens-1 { top: 6px; left: 6px; }
+.cam-lens-2 { bottom: 6px; left: 6px; }
+.cam-lens-3 { top: 24px; right: 6px; }
+
+.cam-flash {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #fef08a;
+    box-shadow: 0 0 6px rgba(254, 240, 138, 0.8);
+}
+
+.cam-lidar {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #020617;
+    border: 1px solid #1e293b;
+}
+
+.phone-island-notch {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58px;
+    height: 16px;
+    background: #000000;
+    border-radius: 20px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    gap: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.island-camera {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+}
+
+.island-sensor {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #0284c7;
+    opacity: 0.8;
+}
+
+.phone-screen-frame {
+    position: relative;
+    flex: 1;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #000000;
+}
+
+.phone-img {
+    object-position: top center;
+}
+
+.phone-button {
+    position: absolute;
+    background: #2d3748;
+    border-radius: 2px;
+}
+
+.btn-vol-up {
+    left: -6px;
+    top: 80px;
+    width: 3px;
+    height: 32px;
+}
+
+.btn-vol-down {
+    left: -6px;
+    top: 122px;
+    width: 3px;
+    height: 32px;
+}
+
+.btn-power {
+    right: -6px;
+    top: 95px;
+    width: 3px;
+    height: 44px;
+}
+
+/* Dedicated Laptop Floor Shadow (Positioned cleanly under base) */
+.laptop-floor-shadow {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) rotateX(90deg);
+    width: 320px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.3) 0%, rgba(0, 0, 0, 0.65) 45%, transparent 70%);
+    filter: blur(9px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.light-mode .laptop-floor-shadow {
+    background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.22) 0%, rgba(0, 0, 0, 0.25) 45%, transparent 70%);
+}
+
+/* Dedicated Phone Floor Shadow (Positioned cleanly under phone bottom edge) */
+.phone-floor-shadow {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) rotateX(90deg);
+    width: 160px;
+    height: 46px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.35) 0%, rgba(0, 0, 0, 0.7) 45%, transparent 70%);
+    filter: blur(8px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.light-mode .phone-floor-shadow {
+    background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.25) 0%, rgba(0, 0, 0, 0.25) 45%, transparent 70%);
+}
+
+/* 3D Device Control HUD */
+.device-stage-hud {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px;
+    z-index: 10;
+}
+
+.device-hud-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    pointer-events: auto;
+}
+
+.device-type-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(14, 18, 30, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-full);
+    padding: 3px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.light-mode .device-type-toggle {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(99, 102, 241, 0.15);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.device-type-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    padding: 4px 12px;
+    border-radius: var(--border-radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all var(--transition-fast);
+}
+
+.device-type-btn:hover {
+    color: var(--text-primary);
+}
+
+.device-type-btn.active {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.35) 0%, rgba(6, 182, 212, 0.3) 100%);
+    border-color: rgba(6, 182, 212, 0.5);
+    color: #f8fafc;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
+}
+
+.light-mode .device-type-btn.active {
+    background: linear-gradient(135deg, #4f46e5 0%, #0891b2 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.device-hud-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    pointer-events: auto;
+    margin-bottom: 2px;
+}
+
+.device-slide-controls,
+.device-preset-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(10, 15, 28, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius-full);
+    padding: 3px 6px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.light-mode .device-slide-controls,
+.light-mode .device-preset-controls {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(99, 102, 241, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.device-slide-btn,
+.device-preset-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.device-slide-btn:hover,
+.device-preset-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.light-mode .device-slide-btn:hover,
+.light-mode .device-preset-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.device-slide-counter {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk', monospace;
+    padding: 0 6px;
+}
+
+.device-interaction-hint {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.light-mode .device-interaction-hint {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 576px) {
+    .device-hud-top {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .device-interaction-hint {
+        display: none;
+    }
+    .mockup-laptop {
+        transform: scale(0.85);
+    }
+    .mockup-phone {
+        transform: scale(0.85);
+    }
+}
+
+
+/* Featured Card Mode Toggles: Hide static 2D gallery count pill and slider nav arrows in 3D mode */
+.featured-image-wrapper:not(.static-mode-active) .gallery-count-pill,
+.featured-image-wrapper:not(.static-mode-active) .card-slider-nav {
+    display: none !important;
+}
+
+.featured-image-wrapper.static-mode-active .gallery-count-pill {
+    display: inline-flex !important;
+}
+
+.featured-image-wrapper.static-mode-active .card-slider-nav {
+    display: flex !important;
 }
