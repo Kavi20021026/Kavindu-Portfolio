@@ -2838,6 +2838,28 @@
 
             <!-- Featured Project Showcase -->
             <div class="featured-project-container" style="margin-bottom: 48px;">
+                <!-- 3D Studio Project Selector Bar -->
+                <div class="featured-showcase-header">
+                    <div class="featured-showcase-badge">
+                        <i class="fa-solid fa-cube text-accent"></i> <span>Interactive 3D Device Studio</span>
+                        <span class="studio-filter-pill" id="studioFilterPill">Flagships (4)</span>
+                    </div>
+                    <div class="featured-project-chips" id="featuredProjectChips" role="tablist" aria-label="Select Project for 3D View">
+                        <button type="button" class="stage-proj-chip active" data-project-key="ai-attendance" title="Inspect AI Attendance System on MacBook Pro">
+                            <i class="fa-solid fa-laptop"></i> <span>AI Attendance</span>
+                        </button>
+                        <button type="button" class="stage-proj-chip" data-project-key="queueless" title="Inspect QueueLess Mobile App on iPhone 16 Pro">
+                            <i class="fa-solid fa-mobile-screen"></i> <span>QueueLess</span>
+                        </button>
+                        <button type="button" class="stage-proj-chip" data-project-key="spendly" title="Inspect Spendly Expense Tracker on iPhone 16 Pro">
+                            <i class="fa-solid fa-mobile-screen"></i> <span>Spendly</span>
+                        </button>
+                        <button type="button" class="stage-proj-chip" data-project-key="disaster-relief" title="Inspect Disaster Relief Architecture on MacBook Pro">
+                            <i class="fa-solid fa-laptop"></i> <span>Disaster Relief</span>
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Project 1: AI-Powered Face Recognition Attendance Management System -->
                 <div class="glass-card project-card featured-project-card filter-ai filter-web filter-database"
                     data-title="AI-Powered Face Recognition Attendance Management System"
@@ -2983,7 +3005,7 @@
                                     class="project-img" id="featuredStaticImg" alt="AI Face Recognition Attendance System Preview" loading="lazy">
                             </div>
 
-                            <span class="status-badge status-completed">Completed | Aug 2026</span>
+                            <span class="status-badge status-completed" id="featuredStageStatus">Completed | Aug 2026</span>
                         </div>
                         <div class="project-content featured-content">
                             <div class="project-header">
@@ -2998,7 +3020,7 @@
                                 <li>Anti-spoofing engine (EAR blink detection & Laplacian texture variance)</li>
                                 <li>Interactive cybernetic canvas HUD with LERP smoothing & stabilizers</li>
                             </ul>
-                            <div class="project-badges" style="margin-bottom: 24px;">
+                            <div class="project-badges" id="featuredStageBadges" style="margin-bottom: 24px;">
                                 <span class="project-badge">React 18</span>
                                 <span class="project-badge">Python 3</span>
                                 <span class="project-badge">Flask</span>
@@ -3011,11 +3033,11 @@
                             <div class="project-cta-group">
                                 <a href="https://github.com/Kavi20021026/AI-face-recognition-attendance-system"
                                     target="_blank" rel="noopener" class="btn-secondary btn-sm github-btn-icon"
-                                    aria-label="View Github code"><i class="fa-brands fa-github"></i></a>
+                                    id="featuredStageGithub" aria-label="View Github code"><i class="fa-brands fa-github"></i></a>
                                 <button type="button" class="btn-primary btn-sm" id="btnInteractive3DPreview">
                                     <i class="fa-solid fa-cube"></i> Interactive 3D Preview
                                 </button>
-                                <button type="button" class="btn-outline btn-sm open-details-btn"><i
+                                <button type="button" class="btn-outline btn-sm open-details-btn" id="featuredStageCaseStudy"><i
                                         class="fa-solid fa-file-lines"></i> Case Study</button>
                             </div>
                         </div>
@@ -4097,11 +4119,25 @@
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                const featuredContainer = document.querySelector('.featured-project-container');
-                let featuredVisible = false;
+                // Sync 3D Device Studio dynamically with selected category (Option 3)
+                if (typeof window.syncFeatured3DStudioWithCategory === 'function') {
+                    window.syncFeatured3DStudioWithCategory(filter);
+                }
 
-                // Filter cards
+                const featuredContainer = document.querySelector('.featured-project-container');
+                // Under Option 3, all categories have projects in the 3D Studio, so container stays visible
+                if (featuredContainer) {
+                    featuredContainer.style.display = 'block';
+                }
+
+                // Filter cards in grid
                 projectCards.forEach(card => {
+                    // Featured 3D Studio card is always visible in the top container
+                    if (card.classList.contains('featured-project-card')) {
+                        card.style.display = 'flex';
+                        return;
+                    }
+
                     const isGridHiddenProject = card.classList.contains('hidden-project') ||
                         (card.classList.contains('revealed-project') && hiddenProjects && Array.from(hiddenProjects).includes(card));
 
@@ -4111,27 +4147,16 @@
                             card.style.display = 'none';
                         } else {
                             card.style.display = 'flex';
-                            if (card.classList.contains('featured-project-card')) {
-                                featuredVisible = true;
-                            }
                         }
                     } else {
                         // For specific filters, check matching category
                         if (card.classList.contains(`filter-${filter}`)) {
                             card.style.display = 'flex';
-                            if (card.classList.contains('featured-project-card')) {
-                                featuredVisible = true;
-                            }
                         } else {
                             card.style.display = 'none';
                         }
                     }
                 });
-
-                // Toggle featured container visibility so no empty gap appears when filtering
-                if (featuredContainer) {
-                    featuredContainer.style.display = featuredVisible ? 'block' : 'none';
-                }
 
                 // Toggle "View All" button container visibility based on filter
                 if (viewAllBtn && viewAllBtn.parentElement) {
@@ -4398,8 +4423,8 @@
                     e.target.closest('.card-slide-btn') || 
                     e.target.closest('.featured-3d-stage') || 
                     e.target.closest('.device-view-switch-wrapper') || 
+                    e.target.closest('.featured-showcase-header') || 
                     e.target.closest('#btnInteractive3DPreview') || 
-                    e.target.closest('.btn-inspect-device-3d') || 
                     e.target.classList.contains('github-link')) {
                     return; // Let direct links/controls work
                 }
@@ -6212,48 +6237,470 @@ Type <span class="term-out-success">'help'</span> or <span class="term-out-succe
                 e.stopPropagation();
             });
 
-            // ===== 7. INSPECT IN 3D BUTTONS ON ALL PROJECT CARDS =====
-            const projectCards = document.querySelectorAll('.projects-grid .project-card');
-            projectCards.forEach(card => {
-                const ctaGroup = card.querySelector('.project-cta-group');
-                if (!ctaGroup) return;
+            // ===== 7. DYNAMIC 3D PROJECT STUDIO SYNC (OPTION 3) =====
+            const projectShowcaseData = {
+                'ai-attendance': {
+                    key: 'ai-attendance',
+                    title: 'AI Face Recognition Attendance System',
+                    chipLabel: 'AI Attendance',
+                    device: 'laptop',
+                    categories: ['all', 'ai', 'web', 'database'],
+                    desc: 'Full-stack biometric attendance platform with decoupled microservices, 128D facial embeddings, and multi-tier anti-spoofing.',
+                    features: [
+                        'Decoupled microservices (React 18 + Node.js + Python Flask/OpenCV)',
+                        '128D facial vector embeddings & Cosine Similarity matching (&ge; 0.75)',
+                        'Anti-spoofing engine (EAR blink detection & Laplacian texture variance)',
+                        'Interactive cybernetic canvas HUD with LERP smoothing & stabilizers'
+                    ],
+                    badges: ['React 18', 'Python 3', 'Flask', 'OpenCV', 'Node.js', 'Express', 'MongoDB Atlas', 'Docker'],
+                    github: 'https://github.com/Kavi20021026/AI-face-recognition-attendance-system',
+                    status: 'Completed | Aug 2026',
+                    images: [
+                        'images/AI-Powered Face Recognition Attendance Management System images/1.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/2.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/3.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/4.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/5.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/6.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/7.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/8.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/9.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/10.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/11.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/12.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/13.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/14.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/15.png',
+                        'images/AI-Powered Face Recognition Attendance Management System images/16.png'
+                    ]
+                },
+                'queueless': {
+                    key: 'queueless',
+                    title: 'QueueLess Mobile App',
+                    chipLabel: 'QueueLess',
+                    device: 'phone',
+                    categories: ['all', 'mobile'],
+                    desc: 'Enterprise-grade cross-platform virtual queue management system with real-time Firestore synchronization, rolling wait time algorithm, and instant QR passes.',
+                    features: [
+                        'Feature-Driven Clean Architecture with Flutter, Dart & Firebase',
+                        'Live Queue Tracker with dynamic wait estimation algorithm',
+                        'Touchless on-site QR scanner & digital ticketing pass generator',
+                        'Multi-role ecosystem: Customer, Counter Terminal & Admin BI portal'
+                    ],
+                    badges: ['Flutter', 'Dart', 'Firebase', 'Riverpod', 'QR Scanner', 'Cloud Functions'],
+                    github: 'https://github.com/Kavi20021026/queueless-smart-queue.git',
+                    status: 'Completed | Sep 2026',
+                    images: [
+                        'images/QueueLess Mobile  App/4.jpeg',
+                        'images/QueueLess Mobile  App/11.jpeg',
+                        'images/QueueLess Mobile  App/10.jpeg',
+                        'images/QueueLess Mobile  App/13.jpeg',
+                        'images/QueueLess Mobile  App/14.jpeg',
+                        'images/QueueLess Mobile  App/9.jpeg',
+                        'images/QueueLess Mobile  App/8.jpeg',
+                        'images/QueueLess Mobile  App/6.jpeg',
+                        'images/QueueLess Mobile  App/7.jpeg',
+                        'images/QueueLess Mobile  App/5.jpeg',
+                        'images/QueueLess Mobile  App/3.jpeg',
+                        'images/QueueLess Mobile  App/12.jpeg',
+                        'images/QueueLess Mobile  App/2.jpeg',
+                        'images/QueueLess Mobile  App/1.jpeg'
+                    ]
+                },
+                'spendly': {
+                    key: 'spendly',
+                    title: 'Spendly Expense Tracker',
+                    chipLabel: 'Spendly',
+                    device: 'phone',
+                    categories: ['all', 'mobile'],
+                    desc: 'Modern personal finance and expense management mobile application with real-time financial analytics, instant search, and dual theme engine.',
+                    features: [
+                        'Modern Reactive UI with Flutter, Material 3 & custom glassmorphism',
+                        'Financial analytics engine: monthly totals, rolling averages & pie breakdowns',
+                        'Frictionless transaction logging with one-tap denomination chips',
+                        'End-to-end encrypted local vault storage operating 100% offline'
+                    ],
+                    badges: ['Flutter', 'Dart', 'Mobile UI/UX', 'Financial Analytics', 'Local Vault', 'Material 3'],
+                    github: 'https://github.com/Kavi20021026',
+                    status: 'Completed | Oct 2026',
+                    images: [
+                        'images/Spendly/2.jpeg',
+                        'images/Spendly/5.jpeg',
+                        'images/Spendly/3.jpeg',
+                        'images/Spendly/6.jpeg',
+                        'images/Spendly/8.jpeg',
+                        'images/Spendly/7.jpeg',
+                        'images/Spendly/9.jpeg',
+                        'images/Spendly/4.jpeg',
+                        'images/Spendly/1.jpeg'
+                    ]
+                },
+                'disaster-relief': {
+                    key: 'disaster-relief',
+                    title: 'Disaster Relief Architecture',
+                    chipLabel: 'Disaster Relief Paper',
+                    device: 'laptop',
+                    categories: ['all', 'research', 'web', 'database'],
+                    desc: 'Location-aware web architecture integrating deterministic rainfall risk decision engine, Leaflet geographic visualization, and resource allocation.',
+                    features: [
+                        'Published first-author paper on Zenodo (DOI: 10.5281/zenodo.22746211)',
+                        'Deterministic rainfall risk decision engine & Leaflet geographic GIS',
+                        '3-tier Node.js, Express & MySQL stack tested with 500 concurrent users',
+                        'Verified System Usability Scale (SUS) score of 85 / 100'
+                    ],
+                    badges: ['Zenodo', 'Node.js', 'Express', 'MySQL', 'Leaflet.js', 'SUS: 85'],
+                    github: 'https://github.com/Kavi20021026/Smart-Disaster-Relief-Management-System.git',
+                    status: 'Published | 2026',
+                    images: [
+                        'images/database0.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/1.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/2.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/3.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/4.png'
+                    ]
+                },
+                'smart-disaster-system': {
+                    key: 'smart-disaster-system',
+                    title: 'Smart Disaster Relief System',
+                    chipLabel: 'Smart Disaster Relief',
+                    device: 'laptop',
+                    categories: ['all', 'web', 'database', 'ai', 'research'],
+                    desc: 'Full-stack platform coordinating real-time emergency warnings, resource allocation, and logistical crisis response with Gemini AI & Twilio.',
+                    features: [
+                        'Gemini AI chatbot & automated Twilio SMS alert broadcasting',
+                        'Leaflet.js interactive maps for real-time shelter matching',
+                        'JWT authentication, role security & deterministic risk scoring',
+                        'Published research architecture on Zenodo with empirical benchmarks'
+                    ],
+                    badges: ['Node.js', 'Express.js', 'Leaflet.js', 'MySQL', 'Gemini AI', 'Twilio'],
+                    github: 'https://github.com/Kavi20021026/Smart-Disaster-Relief-Management-System.git',
+                    status: 'Completed | 2026',
+                    images: [
+                        'images/Smart Disaster Management and Relief Coordination System images/1.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/2.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/3.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/4.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/5.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/6.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/7.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/8.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/9.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/10.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/11.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/12.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/13.png',
+                        'images/Smart Disaster Management and Relief Coordination System images/14.png'
+                    ]
+                },
+                'nova-pos': {
+                    key: 'nova-pos',
+                    title: 'Nova POS System',
+                    chipLabel: 'Nova POS',
+                    device: 'laptop',
+                    categories: ['all', 'web', 'database'],
+                    desc: 'Modular Point of Sale application featuring real-time checkout, automated stock deduction, and sales dashboards with Chart.js analytics.',
+                    features: [
+                        'Real-time AJAX POS cart checkout & automated inventory deduction',
+                        'Admin and cashier role-based authentication and permissions',
+                        'Chart.js interactive financial analytics & sales visualizations',
+                        'Printable dynamic invoices & CSV/PDF transaction reports'
+                    ],
+                    badges: ['PHP', 'MySQL', 'Bootstrap 5', 'Chart.js', 'AJAX'],
+                    github: 'https://github.com/Kavi20021026',
+                    status: 'Maintained',
+                    images: [
+                        'images/Nova Pos System/1.png',
+                        'images/Nova Pos System/2.png',
+                        'images/Nova Pos System/3.png',
+                        'images/Nova Pos System/4.png',
+                        'images/Nova Pos System/5.png',
+                        'images/Nova Pos System/6.png',
+                        'images/Nova Pos System/7.png',
+                        'images/Nova Pos System/8.png',
+                        'images/Nova Pos System/9.png',
+                        'images/Nova Pos System/10.png',
+                        'images/Nova Pos System/11.png',
+                        'images/Nova Pos System/12.png',
+                        'images/Nova Pos System/13.png'
+                    ]
+                },
+                'study-planner': {
+                    key: 'study-planner',
+                    title: 'AI-Powered Study Planner',
+                    chipLabel: 'Study Planner',
+                    device: 'laptop',
+                    categories: ['all', 'web', 'database', 'ai'],
+                    desc: 'PHP web application facilitating AI-priority scheduling, progress tracking, and calendar views for students.',
+                    features: [
+                        'AI-priority dynamic scheduling engine based on subject difficulty',
+                        'Calendar & timeline visualizers for exam and assignment deadlines',
+                        'Real-time study progress analytics & Pomodoro session tracker',
+                        'Automated PDF schedule exports & browser notification reminders'
+                    ],
+                    badges: ['PHP', 'MySQL', 'JavaScript', 'XAMPP', 'AI Logic'],
+                    github: 'https://github.com/Kavi20021026',
+                    status: 'Completed',
+                    images: [
+                        'images/Study Planner/1.png',
+                        'images/Study Planner/2.png',
+                        'images/Study Planner/3.png',
+                        'images/Study Planner/4.png',
+                        'images/Study Planner/5.png',
+                        'images/Study Planner/6.png',
+                        'images/Study Planner/7.png',
+                        'images/Study Planner/8.png',
+                        'images/Study Planner/9.png',
+                        'images/Study Planner/10.png',
+                        'images/Study Planner/11.png',
+                        'images/Study Planner/12.png',
+                        'images/Study Planner/13.png'
+                    ]
+                },
+                'movie-booking': {
+                    key: 'movie-booking',
+                    title: 'Movie Ticket Booking System',
+                    chipLabel: 'Movie Booking',
+                    device: 'laptop',
+                    categories: ['all', 'web', 'database'],
+                    desc: 'A web application facilitating theater ticket booking, scheduled movie listings, and hall seat selections.',
+                    features: [
+                        'Interactive cinema seat chart reservation engine',
+                        'Real-time schedule management for showtimes and auditoriums',
+                        'Instant price calculation with multi-tier ticket categories',
+                        'Responsive high-contrast UI with SQL transaction integrity'
+                    ],
+                    badges: ['HTML5', 'CSS3', 'JavaScript', 'SQL', 'Responsive UI'],
+                    github: 'https://github.com/Kavi20021026/Movie-Theater-Booking-System.git',
+                    status: 'Completed',
+                    images: [
+                        'images/movie 1.png',
+                        'images/movie 2.png',
+                        'images/movie 3.png',
+                        'images/movie 4.png'
+                    ]
+                },
+                'weather-app': {
+                    key: 'weather-app',
+                    title: 'Weather App (Java Full-Stack)',
+                    chipLabel: 'Java Weather App',
+                    device: 'laptop',
+                    categories: ['all', 'java', 'web'],
+                    desc: 'Lightweight Java server backend that aggregates live weather reports for cities dynamically without heavyweight frameworks.',
+                    features: [
+                        'Pure Java SE implementation without heavyweight external frameworks',
+                        'Custom lightweight HttpServer handling REST endpoints and routing',
+                        'External meteorological API integration with real-time JSON parsing',
+                        'Clean responsive glassmorphism web interface with dynamic icons'
+                    ],
+                    badges: ['Java SE', 'HttpServer', 'REST API', 'JSON', 'Clean Arch'],
+                    github: 'https://github.com/Kavi20021026/weather-app-java.git',
+                    status: 'Completed',
+                    images: [
+                        'images/Weather App (Java Full-Stack)/1.png',
+                        'images/Weather App (Java Full-Stack)/2.png',
+                        'images/Weather App (Java Full-Stack)/3.png',
+                        'images/Weather App (Java Full-Stack)/4.png',
+                        'images/Weather App (Java Full-Stack)/5.png',
+                        'images/Weather App (Java Full-Stack)/6.png',
+                        'images/Weather App (Java Full-Stack)/7.png',
+                        'images/Weather App (Java Full-Stack)/8.png'
+                    ]
+                },
+                'disaster-relief-db': {
+                    key: 'disaster-relief-db',
+                    title: 'Smart Disaster Relief System (Database)',
+                    chipLabel: 'Disaster Relief DB',
+                    device: 'laptop',
+                    categories: ['all', 'database'],
+                    desc: 'Relational database designed to coordinate resources, reporting, and logistics in emergency situations.',
+                    features: [
+                        'Normalized relational schema (3NF) for high-integrity emergency ops',
+                        'Disaster reporting, resource allocation, and inventory tracking tables',
+                        'Optimized complex SQL joins, indexing, and transactional rollbacks',
+                        'Spatial entity-relationship diagrams (ERD) and relational mapping'
+                    ],
+                    badges: ['SQL', 'MySQL', 'Schema Design', '3NF Normalization', 'Relational DB'],
+                    github: 'https://github.com/Kavi20021026/Smart-Disaster-Relief-Management-System.git',
+                    status: 'Completed',
+                    images: [
+                        'images/database0.png',
+                        'images/smer.png',
+                        'images/smerm.png',
+                        'images/database1.png',
+                        'images/database2.png',
+                        'images/database3.png',
+                        'images/database4.png',
+                        'images/database5.png'
+                    ]
+                }
+            };
 
-                const isMobile = card.classList.contains('filter-mobile') || 
-                                 (card.dataset.title && card.dataset.title.toLowerCase().includes('mobile'));
+            const chipsContainer = document.getElementById('featuredProjectChips');
+            const studioFilterPill = document.getElementById('studioFilterPill');
+            const featuredStatus = document.getElementById('featuredStageStatus');
+            const featuredBadges = document.getElementById('featuredStageBadges');
+            const featuredGithub = document.getElementById('featuredStageGithub');
+            const featuredStageFeatures = document.getElementById('featuredStageFeatures');
+            const featuredStaticImg = document.getElementById('featuredStaticImg');
 
-                const inspectBtn = document.createElement('button');
-                inspectBtn.type = 'button';
-                inspectBtn.className = 'btn-outline btn-sm btn-inspect-device-3d';
-                inspectBtn.title = 'Inspect in 3D Device';
-                inspectBtn.innerHTML = '<i class="fa-solid fa-cube text-accent"></i> ' + (isMobile ? '3D Phone' : '3D Laptop');
+            let currentProjectKey = 'ai-attendance';
+            let currentCategoryFilter = 'all';
 
-                inspectBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
+            const filterDisplayNames = {
+                'all': 'All',
+                'mobile': 'Mobile',
+                'research': 'Research',
+                'ai': 'AI / Vision',
+                'web': 'Web',
+                'java': 'Java',
+                'database': 'Database'
+            };
 
-                    if (!is3DActive && btn3D) btn3D.click();
+            function switchFeaturedProject(key) {
+                const proj = projectShowcaseData[key];
+                if (!proj) return;
+                currentProjectKey = key;
 
-                    const title = card.querySelector('.project-title')?.textContent || 'Project Showcase';
-                    const desc = card.querySelector('.project-desc')?.textContent || '';
-                    const rawImages = card.dataset.images ? card.dataset.images.split(',').map(s => s.trim()).filter(Boolean) : [];
+                // Update active chip state in DOM
+                if (chipsContainer) {
+                    const allChips = chipsContainer.querySelectorAll('.stage-proj-chip');
+                    allChips.forEach(chip => {
+                        chip.classList.toggle('active', chip.dataset.projectKey === key);
+                    });
+                }
 
-                    if (rawImages.length > 0) {
-                        currentImages = rawImages;
+                // Update images and device
+                currentImages = proj.images;
+                setDeviceType(proj.device);
+                updateSlide(0);
+
+                // Update static 2D image preview as well
+                if (featuredStaticImg && proj.images.length > 0) {
+                    featuredStaticImg.src = proj.images[0];
+                    featuredStaticImg.alt = proj.title + ' Preview';
+                }
+
+                // Update text content
+                if (featuredTitle) featuredTitle.textContent = proj.title;
+                if (featuredDesc) featuredDesc.textContent = proj.desc;
+
+                if (featuredStageFeatures) {
+                    featuredStageFeatures.innerHTML = proj.features.map(f => `<li>${f}</li>`).join('');
+                }
+
+                if (featuredBadges) {
+                    featuredBadges.innerHTML = proj.badges.map(b => `<span class="project-badge">${b}</span>`).join('');
+                }
+
+                if (featuredStatus) {
+                    featuredStatus.textContent = proj.status;
+                }
+
+                if (featuredGithub) {
+                    featuredGithub.href = proj.github;
+                }
+
+                // Smooth spin flip to highlight device change
+                targetRotY += 360;
+                setMode(true);
+            }
+
+            const flagshipKeys = ['ai-attendance', 'queueless', 'spendly', 'disaster-relief'];
+
+            function renderProjectChipsForCategory(filterCategory) {
+                currentCategoryFilter = filterCategory || 'all';
+                if (!chipsContainer) return;
+
+                let matchingKeys = [];
+                if (currentCategoryFilter === 'all') {
+                    // Option 1: Curated top 4 flagship systems on "All" to maintain a clean, single-row showcase
+                    matchingKeys = flagshipKeys;
+                } else if (currentCategoryFilter === 'web') {
+                    matchingKeys = ['ai-attendance', 'smart-disaster-system', 'nova-pos', 'study-planner'];
+                } else if (currentCategoryFilter === 'database') {
+                    matchingKeys = ['ai-attendance', 'smart-disaster-system', 'nova-pos', 'disaster-relief-db'];
+                } else {
+                    matchingKeys = Object.keys(projectShowcaseData).filter(key => {
+                        const proj = projectShowcaseData[key];
+                        return proj.categories.includes(currentCategoryFilter);
+                    });
+                }
+
+                if (matchingKeys.length === 0) return;
+
+                // Update studio filter pill
+                if (studioFilterPill) {
+                    if (currentCategoryFilter === 'all') {
+                        studioFilterPill.textContent = 'Flagships (4)';
+                    } else {
+                        const filterName = filterDisplayNames[currentCategoryFilter] || currentCategoryFilter;
+                        studioFilterPill.textContent = `${filterName} (${matchingKeys.length})`;
                     }
+                }
 
-                    if (featuredTitle) featuredTitle.textContent = title;
-                    if (featuredDesc) featuredDesc.textContent = desc;
+                // Determine target project: if current project is in this category, keep it, else pick first match
+                const targetKey = matchingKeys.includes(currentProjectKey) ? currentProjectKey : matchingKeys[0];
 
-                    setDeviceType(isMobile ? 'phone' : 'laptop');
-                    updateSlide(0);
-            setMode(true);
+                // Render dynamic chips
+                chipsContainer.innerHTML = '';
+                matchingKeys.forEach(key => {
+                    const proj = projectShowcaseData[key];
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'stage-proj-chip' + (key === targetKey ? ' active' : '');
+                    btn.dataset.projectKey = key;
+                    btn.title = `Inspect ${proj.title} on ${proj.device === 'phone' ? 'iPhone 16 Pro' : 'MacBook Pro'}`;
 
-                    // Smooth flip into view
-                    targetRotY += 360;
-                    container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    const iconClass = proj.device === 'phone' ? 'fa-mobile-screen' : 'fa-laptop';
+
+                    btn.innerHTML = `
+                        <i class="fa-solid ${iconClass}"></i>
+                        <span>${proj.chipLabel}</span>
+                    `;
+
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        switchFeaturedProject(key);
+                    });
+
+                    chipsContainer.appendChild(btn);
                 });
 
-                ctaGroup.appendChild(inspectBtn);
-            });
+                // Switch to the target project
+                switchFeaturedProject(targetKey);
+            }
+
+            // Expose globally for category filter buttons
+            window.syncFeatured3DStudioWithCategory = renderProjectChipsForCategory;
+
+            // Connect Case Study button to open modal for whichever project is currently loaded
+            const featuredCaseStudy = document.getElementById('featuredStageCaseStudy');
+            if (featuredCaseStudy) {
+                featuredCaseStudy.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const cardSelectorMap = {
+                        'ai-attendance': '.featured-project-card',
+                        'queueless': '.projects-grid .project-card[data-title*="QueueLess"]',
+                        'spendly': '.projects-grid .project-card[data-title*="Spendly"]',
+                        'disaster-relief': '.projects-grid .project-card[data-title*="Research Publication"]',
+                        'smart-disaster-system': '.projects-grid .project-card[data-title="Smart Disaster Management and Relief Coordination System"]',
+                        'nova-pos': '.projects-grid .project-card[data-title*="Nova POS"]',
+                        'study-planner': '.projects-grid .project-card[data-title*="Study Planner"]',
+                        'movie-booking': '.projects-grid .project-card[data-title*="Movie"]',
+                        'weather-app': '.projects-grid .project-card[data-title*="Weather"]',
+                        'disaster-relief-db': '.projects-grid .project-card[data-title*="Database"]'
+                    };
+
+                    const selector = cardSelectorMap[currentProjectKey];
+                    const targetCard = selector ? document.querySelector(selector) : null;
+                    if (targetCard) {
+                        targetCard.click();
+                    }
+                });
+            }
+
+            // Initial render of chips for 'all'
+            renderProjectChipsForCategory('all');
 
             // ===== 8. RAF TICK ANIMATION =====
             function tick() {
