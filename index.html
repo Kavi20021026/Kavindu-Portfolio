@@ -110,8 +110,11 @@
                         alt="Kavindu Dissanayaka Profile Picture">
                 </div>
 
-                <!-- Orbit System -->
-                <div class="orbit-ring">
+                <!-- Inner Ethereal Gyroscopic Ring -->
+                <div class="orbit-gyro-ring-inner"></div>
+
+                <!-- 3D Gyroscopic Tech Orbit System -->
+                <div class="orbit-ring orbit-gyro-ring-outer">
                     <!-- HTML5 -->
                     <div class="orbit-item-wrapper" style="--angle: 0deg;">
                         <div class="orbit-item" title="HTML5" style="--angle: 0deg; color: #E34F26;">
@@ -2129,32 +2132,33 @@
                                 <span class="cert-date"><i class="fa-regular fa-calendar"></i> Sep 2026</span>
                             </div>
                         </div>
-                        <div class="cert-card" aria-hidden="true" data-cert-title="Data Analytics Essentials"
-                            data-cert-issuer="CISCO" data-cert-badge="badge-cisco" data-cert-date="Issued 10 Oct 2026"
-                            data-cert-img="images/Certificates/Data Analytic Essentials.png"
-                            data-cert-desc="Data transformation, exploratory analysis, statistical evaluation, visualization &amp; business intelligence using Cisco Networking Academy.">
-                            <div class="cert-thumb-box">
-                                <span class="cert-verified-badge"><i class="fa-solid fa-check"></i></span>
-                                <span class="cert-issuer-badge badge-cisco">CISCO</span>
-                                <img src="images/Certificates/Data Analytic Essentials.png"
-                                    alt="CISCO Data Analytics Essentials Certificate" class="cert-thumb-img"
-                                    loading="lazy">
-                                <div class="cert-thumb-overlay">
-                                    <span class="cert-inspect-pill"><i class="fa-solid fa-magnifying-glass-plus"></i>
-                                        Inspect Certificate</span>
-                                </div>
+                    </div>
+
+                    <div class="cert-card" aria-hidden="true" data-cert-title="Data Analytics Essentials"
+                        data-cert-issuer="CISCO" data-cert-badge="badge-cisco" data-cert-date="Issued 10 Oct 2026"
+                        data-cert-img="images/Certificates/Data Analytic Essentials.png"
+                        data-cert-desc="Data transformation, exploratory analysis, statistical evaluation, visualization &amp; business intelligence using Cisco Networking Academy.">
+                        <div class="cert-thumb-box">
+                            <span class="cert-verified-badge"><i class="fa-solid fa-check"></i></span>
+                            <span class="cert-issuer-badge badge-cisco">CISCO</span>
+                            <img src="images/Certificates/Data Analytic Essentials.png"
+                                alt="CISCO Data Analytics Essentials Certificate" class="cert-thumb-img"
+                                loading="lazy">
+                            <div class="cert-thumb-overlay">
+                                <span class="cert-inspect-pill"><i class="fa-solid fa-magnifying-glass-plus"></i>
+                                    Inspect Certificate</span>
                             </div>
-                            <div class="cert-body">
-                                <div>
-                                    <h3 class="cert-title">Data Analytics Essentials</h3>
-                                    <p class="cert-desc">Data transformation, exploratory analysis, statistical
-                                        evaluation, visualization &amp; business intelligence.</p>
-                                </div>
-                                <div class="cert-footer-meta">
-                                    <span class="cert-issuer-name"><i class="fa-solid fa-building-columns"></i> CISCO
-                                        Academy</span>
-                                    <span class="cert-date"><i class="fa-regular fa-calendar"></i> Oct 2026</span>
-                                </div>
+                        </div>
+                        <div class="cert-body">
+                            <div>
+                                <h3 class="cert-title">Data Analytics Essentials</h3>
+                                <p class="cert-desc">Data transformation, exploratory analysis, statistical
+                                    evaluation, visualization &amp; business intelligence.</p>
+                            </div>
+                            <div class="cert-footer-meta">
+                                <span class="cert-issuer-name"><i class="fa-solid fa-building-columns"></i> CISCO
+                                    Academy</span>
+                                <span class="cert-date"><i class="fa-regular fa-calendar"></i> Oct 2026</span>
                             </div>
                         </div>
                     </div>
@@ -4625,6 +4629,9 @@
             let animationFrameId = null;
             let isTabActive = true;
             let lastMeteorTime = Date.now();
+            let isWarping = true;
+            const warpDuration = 1400; // 1.4s 3D warp drive entrance
+            const warpStartTime = performance.now();
 
             // Star color palette matching portfolio theme
             const starColors = [
@@ -4719,7 +4726,18 @@
                 mouseX += (targetMouseX - mouseX) * 0.05;
                 mouseY += (targetMouseY - mouseY) * 0.05;
 
-                // 1. Render Stars
+                // 3D Warp Speed Entrance (1.4s on load)
+                const elapsed = performance.now() - warpStartTime;
+                const warpT = Math.min(1, elapsed / warpDuration);
+                const easeOut = 1 - Math.pow(1 - warpT, 3);
+                const speedMultiplier = (1 - easeOut) * 22;
+
+                if (warpT >= 1) isWarping = false;
+
+                const cx = width / 2;
+                const cy = height / 2;
+
+                // 1. Render Stars (with 3D radial warp streaks during entrance)
                 for (let i = 0; i < stars.length; i++) {
                     const s = stars[i];
 
@@ -4739,17 +4757,37 @@
                     if (sy < 0) sy += height;
                     else if (sy > height) sy -= height;
 
-                    ctx.beginPath();
-                    ctx.arc(sx, sy, s.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = s.colorPrefix + currentAlpha.toFixed(3) + ')';
-                    ctx.fill();
+                    if (isWarping && speedMultiplier > 0.1) {
+                        const angle = Math.atan2(sy - cy, sx - cx);
+                        const streakLen = speedMultiplier * (s.depth * 3.8 + 1.2);
+                        const px = sx - Math.cos(angle) * streakLen;
+                        const py = sy - Math.sin(angle) * streakLen;
 
-                    // Add subtle glow to larger foreground stars
-                    if (s.radius > 1.5 && currentAlpha > 0.6) {
+                        ctx.strokeStyle = s.colorPrefix + (currentAlpha * Math.min(1, speedMultiplier * 0.08 + 0.4)).toFixed(3) + ')';
+                        ctx.lineWidth = s.radius * Math.min(2.4, speedMultiplier * 0.1 + 1);
                         ctx.beginPath();
-                        ctx.arc(sx, sy, s.radius * 2.2, 0, Math.PI * 2);
-                        ctx.fillStyle = s.colorPrefix + (currentAlpha * 0.2).toFixed(3) + ')';
+                        ctx.moveTo(px, py);
+                        ctx.lineTo(sx, sy);
+                        ctx.stroke();
+
+                        // Star head dot
+                        ctx.beginPath();
+                        ctx.arc(sx, sy, s.radius * 1.2, 0, Math.PI * 2);
+                        ctx.fillStyle = s.colorPrefix + currentAlpha.toFixed(3) + ')';
                         ctx.fill();
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(sx, sy, s.radius, 0, Math.PI * 2);
+                        ctx.fillStyle = s.colorPrefix + currentAlpha.toFixed(3) + ')';
+                        ctx.fill();
+
+                        // Add subtle glow to larger foreground stars
+                        if (s.radius > 1.5 && currentAlpha > 0.6) {
+                            ctx.beginPath();
+                            ctx.arc(sx, sy, s.radius * 2.2, 0, Math.PI * 2);
+                            ctx.fillStyle = s.colorPrefix + (currentAlpha * 0.2).toFixed(3) + ')';
+                            ctx.fill();
+                        }
                     }
                 }
 
@@ -6229,6 +6267,47 @@ Type <span class="term-out-success">'help'</span> or <span class="term-out-succe
             updateSlide(0);
             tick();
         })();
+        // ===== HERO 3D SPATIAL MOUSE PARALLAX (IDEA 4) =====
+        (function initHero3DParallax() {
+            const hero = document.getElementById('hero');
+            const heroContent = hero ? hero.querySelector('.hero-content') : null;
+            const heroProfile = hero ? hero.querySelector('.hero-profile-container') : null;
+            const nameBadge = hero ? hero.querySelector('.hero-name-badge') : null;
+
+            if (!hero || !heroContent || !heroProfile) return;
+
+            let targetTiltX = 0, targetTiltY = 0;
+            let curTiltX = 0, curTiltY = 0;
+
+            hero.addEventListener('mousemove', (e) => {
+                const rect = hero.getBoundingClientRect();
+                const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+
+                targetTiltY = nx * 8;
+                targetTiltX = -ny * 6;
+            }, { passive: true });
+
+            hero.addEventListener('mouseleave', () => {
+                targetTiltX = 0;
+                targetTiltY = 0;
+            });
+
+            function render() {
+                curTiltX += (targetTiltX - curTiltX) * 0.08;
+                curTiltY += (targetTiltY - curTiltY) * 0.08;
+
+                heroContent.style.transform = 'perspective(1000px) rotateX(' + curTiltX.toFixed(2) + 'deg) rotateY(' + curTiltY.toFixed(2) + 'deg) translateZ(12px)';
+                heroProfile.style.transform = 'perspective(1000px) rotateX(' + (curTiltX * 1.3).toFixed(2) + 'deg) rotateY(' + (curTiltY * 1.3).toFixed(2) + 'deg) translateZ(24px)';
+                if (nameBadge) {
+                    nameBadge.style.transform = 'translateZ(28px) scale(1.02)';
+                }
+
+                requestAnimationFrame(render);
+            }
+            requestAnimationFrame(render);
+        })();
+
     </script>
 </body>
 

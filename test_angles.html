@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Billboard Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background: #030712;
+            color: #fff;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            gap: 60px;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .demo-box {
+            text-align: center;
+        }
+        .hero-profile-container {
+            position: relative;
+            width: 380px;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            margin: 20px auto;
+        }
+
+        /* -------------------------------------------------------------
+           Option 1A: 25deg Orbit Tilt with True Math Billboard Pills
+           ------------------------------------------------------------- */
+        .ring-tilt25 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(6, 182, 212, 0.45);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.2), inset 0 0 25px rgba(99, 102, 241, 0.15);
+            transform-style: preserve-3d;
+            animation: spinRing25 36s linear infinite;
+        }
+        @keyframes spinRing25 {
+            0% { transform: rotateX(25deg) rotateY(-15deg) rotateZ(0deg); }
+            100% { transform: rotateX(25deg) rotateY(-15deg) rotateZ(360deg); }
+        }
+
+        .ring-tilt25-inner {
+            position: absolute;
+            width: 82%;
+            height: 82%;
+            border-radius: 50%;
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.15);
+            transform: rotateX(-22deg) rotateY(18deg);
+            pointer-events: none;
+        }
+
+        .wrap-3d {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            transform-style: preserve-3d;
+            transform: rotateZ(var(--angle));
+        }
+
+        .pill-billboard-25 {
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            left: 195px;
+            top: -26px;
+            margin-left: -26px;
+            background: rgba(14, 20, 36, 0.92);
+            border: 1.5px solid rgba(255, 255, 255, 0.22);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 16px rgba(6, 182, 212, 0.35);
+            transform-style: preserve-3d;
+            pointer-events: auto;
+            animation: billboardCounter25 36s linear infinite;
+        }
+        /* Mathematical inverse: Rz(-(angle + t)) * Ry(15deg) * Rx(-25deg) */
+        @keyframes billboardCounter25 {
+            0% {
+                transform: rotateZ(calc(-1 * var(--angle))) rotateY(15deg) rotateX(-25deg);
+            }
+            100% {
+                transform: rotateZ(calc(-1 * var(--angle) - 360deg)) rotateY(15deg) rotateX(-25deg);
+            }
+        }
+        .pill-billboard-25:hover {
+            transform: rotateZ(calc(-1 * var(--angle))) rotateY(15deg) rotateX(-25deg) scale(1.2) !important;
+            border-color: #06b6d4;
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+            cursor: pointer;
+        }
+
+        /* -------------------------------------------------------------
+           Option 1B: 55deg Deep Gyro Orbit with True Math Billboard Pills
+           ------------------------------------------------------------- */
+        .ring-tilt55 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(6, 182, 212, 0.45);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.2), inset 0 0 25px rgba(99, 102, 241, 0.15);
+            transform-style: preserve-3d;
+            animation: spinRing55 36s linear infinite;
+        }
+        @keyframes spinRing55 {
+            0% { transform: rotateX(55deg) rotateY(-18deg) rotateZ(0deg); }
+            100% { transform: rotateX(55deg) rotateY(-18deg) rotateZ(360deg); }
+        }
+
+        .ring-tilt55-inner {
+            position: absolute;
+            width: 82%;
+            height: 82%;
+            border-radius: 50%;
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.15);
+            transform: rotateX(-48deg) rotateY(22deg);
+            pointer-events: none;
+        }
+
+        .pill-billboard-55 {
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            left: 195px;
+            top: -26px;
+            margin-left: -26px;
+            background: rgba(14, 20, 36, 0.92);
+            border: 1.5px solid rgba(255, 255, 255, 0.22);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 16px rgba(6, 182, 212, 0.35);
+            transform-style: preserve-3d;
+            pointer-events: auto;
+            animation: billboardCounter55 36s linear infinite;
+        }
+        /* Inverse: Rz(-(angle + t)) * Ry(18deg) * Rx(-55deg) */
+        @keyframes billboardCounter55 {
+            0% {
+                transform: rotateZ(calc(-1 * var(--angle))) rotateY(18deg) rotateX(-55deg);
+            }
+            100% {
+                transform: rotateZ(calc(-1 * var(--angle) - 360deg)) rotateY(18deg) rotateX(-55deg);
+            }
+        }
+        .pill-billboard-55:hover {
+            transform: rotateZ(calc(-1 * var(--angle))) rotateY(18deg) rotateX(-55deg) scale(1.2) !important;
+            border-color: #06b6d4;
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-box">
+        <h3>Option 1A: 25° Orbit + Billboard Discs</h3>
+        <div class="hero-profile-container">
+            <div class="hero-profile-frame" style="width: 250px; height: 250px;">
+                <img src="images/handsome-man-suit.png" class="hero-profile-img" alt="Profile">
+            </div>
+            <div class="ring-tilt25-inner"></div>
+            <div class="ring-tilt25">
+                <div class="wrap-3d" style="--angle: 0deg;"><div class="pill-billboard-25" style="--angle: 0deg; color: #E34F26;"><i class="fa-brands fa-html5"></i></div></div>
+                <div class="wrap-3d" style="--angle: 45deg;"><div class="pill-billboard-25" style="--angle: 45deg; color: #1572B6;"><i class="fa-brands fa-css3-alt"></i></div></div>
+                <div class="wrap-3d" style="--angle: 90deg;"><div class="pill-billboard-25" style="--angle: 90deg; color: #F7DF1E;"><i class="fa-brands fa-js"></i></div></div>
+                <div class="wrap-3d" style="--angle: 135deg;"><div class="pill-billboard-25" style="--angle: 135deg; color: #339933;"><i class="fa-brands fa-node-js"></i></div></div>
+                <div class="wrap-3d" style="--angle: 180deg;"><div class="pill-billboard-25" style="--angle: 180deg; color: #60a5fa;"><i class="fa-solid fa-server"></i></div></div>
+                <div class="wrap-3d" style="--angle: 225deg;"><div class="pill-billboard-25" style="--angle: 225deg; color: #61DAFB;"><i class="fa-brands fa-react"></i></div></div>
+                <div class="wrap-3d" style="--angle: 270deg;"><div class="pill-billboard-25" style="--angle: 270deg; color: #00758F;"><i class="fa-solid fa-database"></i></div></div>
+                <div class="wrap-3d" style="--angle: 315deg;"><div class="pill-billboard-25" style="--angle: 315deg; color: #F05032;"><i class="fa-brands fa-git-alt"></i></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-box">
+        <h3>Option 1B: 55° Gyro Orbit + Billboard Discs</h3>
+        <div class="hero-profile-container">
+            <div class="hero-profile-frame" style="width: 250px; height: 250px;">
+                <img src="images/handsome-man-suit.png" class="hero-profile-img" alt="Profile">
+            </div>
+            <div class="ring-tilt55-inner"></div>
+            <div class="ring-tilt55">
+                <div class="wrap-3d" style="--angle: 0deg;"><div class="pill-billboard-55" style="--angle: 0deg; color: #E34F26;"><i class="fa-brands fa-html5"></i></div></div>
+                <div class="wrap-3d" style="--angle: 45deg;"><div class="pill-billboard-55" style="--angle: 45deg; color: #1572B6;"><i class="fa-brands fa-css3-alt"></i></div></div>
+                <div class="wrap-3d" style="--angle: 90deg;"><div class="pill-billboard-55" style="--angle: 90deg; color: #F7DF1E;"><i class="fa-brands fa-js"></i></div></div>
+                <div class="wrap-3d" style="--angle: 135deg;"><div class="pill-billboard-55" style="--angle: 135deg; color: #339933;"><i class="fa-brands fa-node-js"></i></div></div>
+                <div class="wrap-3d" style="--angle: 180deg;"><div class="pill-billboard-55" style="--angle: 180deg; color: #60a5fa;"><i class="fa-solid fa-server"></i></div></div>
+                <div class="wrap-3d" style="--angle: 225deg;"><div class="pill-billboard-55" style="--angle: 225deg; color: #61DAFB;"><i class="fa-brands fa-react"></i></div></div>
+                <div class="wrap-3d" style="--angle: 270deg;"><div class="pill-billboard-55" style="--angle: 270deg; color: #00758F;"><i class="fa-solid fa-database"></i></div></div>
+                <div class="wrap-3d" style="--angle: 315deg;"><div class="pill-billboard-55" style="--angle: 315deg; color: #F05032;"><i class="fa-brands fa-git-alt"></i></div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
